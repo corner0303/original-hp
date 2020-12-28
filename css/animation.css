@@ -1,0 +1,56 @@
+.animation-wrap{
+  text-align: center;
+}
+
+.animation-appear-block {
+  display:inline-block;
+  overflow:hidden;
+  position:relative;
+}
+.animation-appear-block:after{  
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background:linear-gradient(to right,#b5f827 0%, #1c9800 100%);
+  /*アニメーションの設定*/
+  animation: secondaryImageOverlayIn 0.6s 0s cubic-bezier(.77,0,.175,1),
+             secondaryImageOverlayOut 0.6s 0.6s cubic-bezier(.77,0,.175,1);
+  animation-fill-mode: both;
+}
+.animation-appear-block p {
+  margin: 0.05em;
+  /*アニメーションの設定*/
+  animation:fadeIn 0.1s 0.5s; 
+  animation-fill-mode: both;
+}
+
+/*keyframesの設定*/
+/*文字が消えている状態から現れるアニメーション*/
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+/*はじめにブロックを伸ばすアニメーション*/
+@keyframes secondaryImageOverlayIn {
+    0% {
+      width: 0;
+    }
+    100% {
+      width:  100%;
+    }
+  }
+/*伸びたブロックを横に追いやるアニメーション*/
+  @keyframes secondaryImageOverlayOut {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(102%);
+    }
+  }

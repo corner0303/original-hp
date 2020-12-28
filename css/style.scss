@@ -1,0 +1,377 @@
+/* 色定義
+------------------------------------------------*/
+$themae-color:#006CDC;
+$themae-gradation-color: linear-gradient(to right, #b5f827 0%, #1c9800 100%);
+$sub-color: #ED6D00;
+$text-color: #333;
+$bg-color1: #fff;
+$bg-color2: #F0F0F0;
+$bg-color3: #666666;
+$marker-color: rgb(255, 36, 36);
+$color-active: #dafdff; // ベース色
+$border-color: #d9d9d9;
+
+/* レイヤー
+------------------------------------------------*/
+
+$layer: (modal: 100, drawer: 40, floating: 30, header: 20, footer: 10, default: 1);
+
+//フォント
+$english-fonts: "Audiowide", cursive, "ヒラギノ明朝 ProN", serif;
+$base-font: "Avenir", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans", "ヒラギノ角ゴシック", YuGothic, "Yu Gothic", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+
+
+/* mixin
+------------------------------------------------*/
+
+//マップ型変数breakpointsを定義
+$breakpoints: ("sm": "screen and (max-width: 767px)", "pc": "screen and (min-width: 767px)");
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: pc) {
+    //map-get(マップ型変数, キー)で値を取得
+    @media #{map-get($breakpoints, $breakpoint)} {
+        //この中をカスタムできる
+        @content;
+    }
+}
+
+@mixin btn__part {
+    width: 200px; //横幅
+    height: 60px; //高さ
+    display: flex; //横並びにする
+    align-items: center; //縦方向に中央揃え
+    justify-content: space-around; //余白を開けて等間隔に並ぶ
+    border: solid 1px $sub-color; //周りを囲むborder
+    color: $sub-color; //文字色
+    text-decoration: none; //下線を無くす
+    margin: 0 auto; //中央揃え
+    margin-top: 28px; //見やすくするための余白
+    transition: all 0.3s; //hoverした時に0.3sで変化させる
+
+    &::after,
+    &::before {
+        //共通するところはまとめよう！
+        content: ""; //中身
+        display: block;
+        width: 8px; //矢印の大きさの指定 みえない四角を作ります
+        height: 8px; // 矢印の大きさの指定
+        border-top: 2px solid $sub-color; // 矢印の太さの指定
+        border-left: 2px solid $sub-color; // 矢印の太さの指定
+        transition: all .3s; ////hoverした時に0.3sで変化させる
+   
+    }
+
+    &::before {
+        transform: rotate(-45deg); //角度調整
+   
+    }
+
+    &::after {
+        transform: rotate(135deg); //角度調整
+   
+    }
+}
+
+@mixin btn__part--hover {
+    &:hover {
+        background-color: $sub-color; //背景色変化
+        color: #fff; //文字色変化
+        font-weight: bold; //文字を太く
+
+        &::after,
+        &::before {
+            border-color: #fff; //矢印の色を白に
+       
+        }
+
+        &::before {
+            transform: rotate(135deg); //角度調整反対に
+       
+        }
+
+        &::after {
+            transform: rotate(-45deg); //角度調整反対に
+       
+        }
+    }
+}
+
+@mixin english_font {
+    font-family: $english-fonts;
+}
+
+@mixin inner {
+    max-width: 1280px;
+    width: 100%;
+    padding: 0 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    @include mq(sm) {
+        padding: 0 15px;
+    }
+}
+
+/*===============================================
+# common 共通のスタイル
+================================================*/
+
+@include mq("sm") {
+    .is-pc {
+        display: none !important;
+    }
+
+    //pcの時だけ表示 hiddenの逆
+}
+
+
+@include mq("pc") {
+    .is-sm {
+        display: none !important;
+    }
+
+    //spの時だけ表示 hiddenの逆
+}
+
+
+body {
+    font-size: 16px;
+    color: $text-color;
+    font-family: $base-font;
+    line-height: 1.6875;
+}
+
+img {
+    width: 100%;
+}
+
+.section {
+    padding: 80px 0;
+
+    &__inner {
+        @include inner;
+    }
+
+    &__ttl {
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+//link-btn
+.btn {
+    @include btn__part;
+    @include btn__part--hover;
+}
+
+/*===============================================
+# header
+================================================*/
+.header {
+    position: fixed;
+    background: $bg-color1;
+    max-width: 100%;
+    width: 100%;
+    padding-top: 5px;
+    z-index: 3;
+
+
+    &__inner {
+        @include inner;
+    }
+}
+
+.header_container {
+    display: flex;
+}
+
+.header_left {
+    &__logo {
+        width: 76px;
+    }
+}
+
+.header_right {
+    margin-left: auto;
+}
+
+.tel {
+    text-align: right;
+    line-height: 1.3;
+    flex-direction: column;
+    display: flex;
+
+    @include mq(sm) {
+        margin-top: 15px;
+        margin-right: 45px;
+    }
+
+
+    &__text {
+        display: inline-block;
+
+        @include mq(pc) {
+            font-size: 15px;
+        }
+
+
+        @include mq(sm) {
+            display: none;
+        }
+    }
+
+    &__number {
+        @include mq(pc) {
+            font-size: 32px;
+        }
+
+
+        @include mq(sm) {
+            font-size: 22px;
+        }
+        &--icon{
+            margin-right: 5px;
+        }
+    }
+
+    &__attention {
+        @include mq(pc) {
+            font-size: 12px;
+        }
+        
+        
+        @include mq(sm) {
+            font-size: 10px;
+            margin-top: 5px;
+        }
+    }
+}
+
+.hamburger_btn {
+    @include mq(pc) {
+        display: none;
+    }
+
+
+    @include mq(sm) {
+        display: block;
+        position: fixed;
+        z-index: 3;
+        right: 13px;
+        top: 12px;
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+        text-align: center;
+
+        &__part {
+            display: block;
+            position: absolute;
+            width: 30px;
+            height: 2px;
+            left: 6px;
+            background: #555;
+            -webkit-transition: 0.3s ease-in-out;
+            -moz-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+
+            &:nth-child(1) {
+                top: 10px;
+            }
+
+            &:nth-child(2) {
+                top: 20px;
+            }
+
+            &:nth-child(3) {
+                top: 30px;
+            }
+        }
+
+        &__text {
+            position: absolute;
+            top: 35px;
+            left: 0;
+        }
+    }
+}
+
+.hamburger_btn.--active {
+    & .hamburger_btn__part {
+        &:nth-child(1) {
+            top: 16px;
+            left: 6px;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            top: 16px;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.gnav {
+    max-width: 100%;
+    width: 100%;
+    @include mq(sm) {
+        color: #000;
+        background:$bg-color3;
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+}
+
+.nav_list {
+    background: $bg-color3;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    @include mq(pc) {
+        display: flex;
+        text-align: center;
+    }
+
+
+    &__item {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        transition: background .3s ease-out;
+        @include mq(pc) {
+            border-right:1px solid $border-color;
+    
+        }
+        @include mq(sm) {
+            border-bottom: 1px solid #fff;
+            &:last-child {
+                padding-bottom: 0;
+                border-bottom: none;
+            }     
+        }
+
+        &:hover {
+            background: #fff;
+        }
+
+        &_link {
+            display: block;
+            font-weight: bold;
+            color: #fff;
+            padding: 1em 0;
+            text-decoration: none;
+        transition: color .3s ease-out;
+
+            &:hover {
+                color: #666;
+            }
+        }
+    }
+}
