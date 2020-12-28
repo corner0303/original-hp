@@ -1,7 +1,7 @@
 /* 色定義
 ------------------------------------------------*/
-$themae-color:#006CDC;
-$themae-gradation-color: linear-gradient(to right, #b5f827 0%, #1c9800 100%);
+$themae-color: #006CDC;
+$themae-gradation-color: linear-gradient(to right, rgba(0, 108, 220, 0.8) 16%, rgba(126, 187, 219, 0.8) 100%);
 $sub-color: #ED6D00;
 $text-color: #333;
 $bg-color1: #fff;
@@ -19,7 +19,6 @@ $layer: (modal: 100, drawer: 40, floating: 30, header: 20, footer: 10, default: 
 //フォント
 $english-fonts: "Audiowide", cursive, "ヒラギノ明朝 ProN", serif;
 $base-font: "Avenir", "Helvetica Neue", "Helvetica", "Arial", "Hiragino Sans", "ヒラギノ角ゴシック", YuGothic, "Yu Gothic", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-
 
 /* mixin
 ------------------------------------------------*/
@@ -39,61 +38,20 @@ $breakpoints: ("sm": "screen and (max-width: 767px)", "pc": "screen and (min-wid
 @mixin btn__part {
     width: 200px; //横幅
     height: 60px; //高さ
-    display: flex; //横並びにする
-    align-items: center; //縦方向に中央揃え
-    justify-content: space-around; //余白を開けて等間隔に並ぶ
-    border: solid 1px $sub-color; //周りを囲むborder
-    color: $sub-color; //文字色
-    text-decoration: none; //下線を無くす
-    margin: 0 auto; //中央揃え
-    margin-top: 28px; //見やすくするための余白
-    transition: all 0.3s; //hoverした時に0.3sで変化させる
-
-    &::after,
-    &::before {
-        //共通するところはまとめよう！
-        content: ""; //中身
-        display: block;
-        width: 8px; //矢印の大きさの指定 みえない四角を作ります
-        height: 8px; // 矢印の大きさの指定
-        border-top: 2px solid $sub-color; // 矢印の太さの指定
-        border-left: 2px solid $sub-color; // 矢印の太さの指定
-        transition: all .3s; ////hoverした時に0.3sで変化させる
-   
-    }
-
-    &::before {
-        transform: rotate(-45deg); //角度調整
-   
-    }
-
-    &::after {
-        transform: rotate(135deg); //角度調整
-   
-    }
+    line-height: 60px ;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0px 5px 5px rgba(66, 66, 66, 0.8);
+    background: rgba(95, 199, 255, 0.8);
+    border-radius: 10px;
+    transition: background .3s;
+    box-sizing:border-box;
 }
 
 @mixin btn__part--hover {
     &:hover {
-        background-color: $sub-color; //背景色変化
-        color: #fff; //文字色変化
-        font-weight: bold; //文字を太く
-
-        &::after,
-        &::before {
-            border-color: #fff; //矢印の色を白に
-       
-        }
-
-        &::before {
-            transform: rotate(135deg); //角度調整反対に
-       
-        }
-
-        &::after {
-            transform: rotate(-45deg); //角度調整反対に
-       
-        }
+        border: 1px solid rgba(126, 187, 219, 0.8);
+        background: rgba(0, 108, 220, 0.8) ;
     }
 }
 
@@ -163,6 +121,15 @@ img {
 .btn {
     @include btn__part;
     @include btn__part--hover;
+    $this : &;
+    &--mainvisual{
+        margin: 0 auto;
+
+    }
+    &__link {
+        color: #fff;
+        font-weight: bold;
+    }
 }
 
 /*===============================================
@@ -177,7 +144,6 @@ img {
     width: 100%;
     padding-top: 5px;
     z-index: 3;
-
 
     &__inner {
         @include inner;
@@ -232,7 +198,9 @@ img {
         @include mq(sm) {
             font-size: 22px;
         }
-        &--icon{
+
+
+        &--icon {
             margin-right: 5px;
         }
     }
@@ -241,8 +209,8 @@ img {
         @include mq(pc) {
             font-size: 12px;
         }
-        
-        
+
+
         @include mq(sm) {
             font-size: 10px;
             margin-top: 5px;
@@ -322,9 +290,10 @@ img {
 .gnav {
     max-width: 100%;
     width: 100%;
+
     @include mq(sm) {
         color: #000;
-        background:$bg-color3;
+        background: $bg-color3;
         text-align: center;
         width: 100%;
         display: none;
@@ -336,6 +305,7 @@ img {
     margin: 0 auto;
     padding: 0;
     width: 100%;
+
     @include mq(pc) {
         display: flex;
         text-align: center;
@@ -347,17 +317,21 @@ img {
         padding: 0;
         width: 100%;
         transition: background .3s ease-out;
+
         @include mq(pc) {
-            border-right:1px solid $border-color;
-    
+            border-right: 1px solid $border-color;
         }
+
+
         @include mq(sm) {
             border-bottom: 1px solid #fff;
+
             &:last-child {
                 padding-bottom: 0;
                 border-bottom: none;
-            }     
+            }
         }
+
 
         &:hover {
             background: #fff;
@@ -369,7 +343,7 @@ img {
             color: #fff;
             padding: 1em 0;
             text-decoration: none;
-        transition: color .3s ease-out;
+            transition: color .3s ease-out;
 
             &:hover {
                 color: #666;
@@ -382,15 +356,23 @@ img {
 # mainvisual
 ================================================*/
 
-.mainvisual{
+.mainvisual {
+    position: relative;
     width: 100%;
-    padding-top:39.06%;
+    padding-top: 39.06%;
     background-image: url(../img/mainvisual.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 
-.mainvisual__bg{
-    
+.mainvisual_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &__text{
+        font-size: 32px;
+    }
 }

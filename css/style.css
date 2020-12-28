@@ -58,62 +58,31 @@ img {
 .btn {
   width: 200px;
   height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  border: solid 1px #ED6D00;
-  color: #ED6D00;
-  text-decoration: none;
-  margin: 0 auto;
-  margin-top: 28px;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.btn::after, .btn::before {
-  content: "";
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-top: 2px solid #ED6D00;
-  border-left: 2px solid #ED6D00;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-}
-
-.btn::before {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-.btn::after {
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  -webkit-box-shadow: 0px 5px 5px rgba(66, 66, 66, 0.8);
+          box-shadow: 0px 5px 5px rgba(66, 66, 66, 0.8);
+  background: rgba(95, 199, 255, 0.8);
+  border-radius: 10px;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .btn:hover {
-  background-color: #ED6D00;
+  border: 1px solid rgba(126, 187, 219, 0.8);
+  background: rgba(0, 108, 220, 0.8);
+}
+
+.btn--mainvisual {
+  margin: 0 auto;
+}
+
+.btn__link {
   color: #fff;
   font-weight: bold;
-}
-
-.btn:hover::after, .btn:hover::before {
-  border-color: #fff;
-}
-
-.btn:hover::before {
-  -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
-}
-
-.btn:hover::after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
 }
 
 /*===============================================
@@ -357,11 +326,24 @@ img {
 # mainvisual
 ================================================*/
 .mainvisual {
+  position: relative;
   width: 100%;
   padding-top: 39.06%;
   background-image: url(../img/mainvisual.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+
+.mainvisual_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.mainvisual_content__text {
+  font-size: 32px;
 }
 /*# sourceMappingURL=style.css.map */
