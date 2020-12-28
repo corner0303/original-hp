@@ -121,6 +121,8 @@ img {
 ================================================*/
 .header {
   position: fixed;
+  top: 0;
+  left: 0;
   background: #fff;
   max-width: 100%;
   width: 100%;
@@ -349,5 +351,17 @@ img {
 
 .nav_list__item_link:hover {
   color: #666;
+}
+
+/*===============================================
+# mainvisual
+================================================*/
+.mainvisual {
+  width: 100%;
+  padding-top: 39.06%;
+  background-image: url(../img/mainvisual.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 /*# sourceMappingURL=style.css.map */
