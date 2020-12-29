@@ -501,7 +501,7 @@ img {
         background: url(../img/news.jpg) center center / cover;
         width: 100%;
         @include mq(pc) {
-            margin-left: 266px;   
+            margin-left: 267px;   
             height: 260px;
         }
         @include mq(sm) {
@@ -529,6 +529,7 @@ img {
         margin: 100px auto 0;   
     }
 }
+
 
 .news_list{
     background:rgba(255, 255, 255, 0.6);
