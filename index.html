@@ -26,16 +26,16 @@
   <script src="./js/wow.min.js"></script>
   <!-- drawer.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css"
-  media="screen and (max-width:767px)">
+    media="screen and (max-width:767px)">
   <!-- jquery & iScroll -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- バージョンが最新版になっています -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
   <!-- drawer.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
   <!-- goolge font -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-    </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&family=Roboto:ital,wght@1,900&display=swap"
+    rel="stylesheet">
   <!-- slick -->
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -44,6 +44,8 @@
 </head>
 
 <body>
+  <div class="bg"></div>
+  <!-- /.bg_img -->
   <header class="header" id="header">
     <div class="header__inner">
       <div class="header_container">
@@ -70,7 +72,7 @@
       <span class="hamburger_btn__part"></span>
       <span class="hamburger_btn__text" id="hamburger_btn__text">Menu</span>
     </div>
-  
+
     <nav class="gnav">
       <ul class="nav_list">
         <li class="nav_list__item"><a class="nav_list__item_link" href="">企業紹介</a></li>
@@ -87,7 +89,8 @@
   <div class="mainvisual">
     <!-- /.mainvisual__bg -->
     <div class="mainvisual_content">
-      <strong class="mainvisual_content__text"><span class="mainvisual_content__text--emphasis">キャッチフレーズ</span>が入ります</strong>
+      <strong class="mainvisual_content__text"><span
+          class="mainvisual_content__text--emphasis">キャッチフレーズ</span>が入ります</strong>
       <div class="btn btn--mainvisual">
         <a href="" class="btn__link">企業紹介へ</a>
       </div>
@@ -96,6 +99,61 @@
   </div>
   <!-- /.mainvisual -->
 
+  <section class="news section">
+    <div class="news_top">
+      <h2 class="news_top__ttl"><span class="news_top__ttl--en">NEWS</span><span class="news_top__ttl--jp">ニュース</span>
+      </h2>
+      <div class="news_top__img"></div>
+    </div>
+    <!-- /.news_top -->
+    <div class="news__inner section__inner">
+      <div class="news_content">
+        <article class="news_list">
+          <a class="news_item">
+            <span class="news_item__category news_item__category--blue">ブログ</span>
+            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
+            <p class="news_item__ttl">テキストテキストテキストテキストテキスト</p>
+          </a>
+        </article>
+        <!-- /.news_list -->
+        <article class="news_list">
+          <a class="news_item">
+            <span class="news_item__category news_item__category--blue">ブログ</span>
+            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
+            <p class="news_item__ttl">テキストテキストテキストテキストテキスト</p>
+          </a>
+        </article>
+        <!-- /.news_list -->
+        <article class="news_list">
+          <a class="news_item">
+            <span class="news_item__category news_item__category--orange">イベント情報</span>
+            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
+            <p class="news_item__ttl">テキストテキストテキストテキストテキスト</p>
+          </a>
+        </article>
+        <!-- /.news_list -->
+        <article class="news_list">
+          <a class="news_item">
+            <span class="news_item__category news_item__category--blue">ブログ</span>
+            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
+            <p class="news_item__ttl">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          </a>
+        </article>
+        <!-- /.news_list -->
+        <article class="news_list">
+          <a class="news_item">
+            <span class="news_item__category news_item__category--red">お知らせ</span>
+            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
+            <p class="news_item__ttl">テキストテキストテキストテキストテキスト</p>
+          </a>
+        </article>
+        <!-- /.news_list -->
+      </div>
+      <!-- /.news_content -->
+    </div>
+    <!-- /.section__inner -->
+  </section>
+  <!-- /.news -->
   <script>
     new WOW().init();
   </script>
