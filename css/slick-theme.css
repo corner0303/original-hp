@@ -190,3 +190,145 @@
 }
 
 
+/* slickの上書き */
+
+/* prev,nextボタン */
+.slick-arrow{
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    transform: translateY(-50%);
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.prev{
+    left: 25px;
+}
+
+.next{
+    right: 25px;
+}
+
+.slider_arrow_icon{
+    color: rgb(235, 109, 0);
+}
+
+.prev:hover .prev_arrow{
+    animation: prev_arrow_animation infinite  .5s;
+}
+
+@keyframes prev_arrow_animation{
+    0%{
+        transform: translateX(0);
+    }
+    10%{
+        transform: translateX(-5px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.next_arrow{
+    animation: next_arrow_animation infinite  1s;
+}
+.next:hover .next_arrow{
+    animation: next_arrow_animation infinite  .5s;
+}
+
+@keyframes next_arrow_animation{
+    0%{
+        transform: translateX(0);
+    }
+    10%{
+        transform: translateX(5px);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+/* ドット */
+
+
+.slick-dots li button {
+    position: relative;
+}
+.slick-dots li button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translateY(-50%) translateX(-50%);
+    width: 5px;
+    height:5px;
+    background:  hsl(0, 0%, 67%);
+    border-radius: 50%;
+    opacity: 1;
+    transition: background-color .3s;
+}
+
+
+.slick-dots li button:hover:before, .slick-dots li button:focus:before{
+    background-color: rgb(235, 109, 0);
+}
+
+.slick-dots li.slick-active button::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translateY(-50%) translateX(-50%);
+    width: 5px;
+    height:5px;
+    background: rgb(235, 109, 0);
+    border-radius: 50%;
+    opacity: 1;
+}
+
+/* ::after */
+.slick-dots li.slick-active button::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translateY(-50%) translateX(-50%);
+    background:rgb(253, 122, 0,.3);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+
+
+@media (max-width:480px){
+    .slick-dots li{
+        margin:0 3px;
+    }
+
+    .slick-arrow{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+    }
+    
+    .prev{
+        left: 5px;
+    }
+    
+    .next{
+        right: 5px;
+    }
+}

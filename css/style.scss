@@ -2,7 +2,7 @@
 ------------------------------------------------*/
 $themae-color: #006CDC;
 $themae-gradation-color: linear-gradient(to right, rgba(0, 108, 220, 0.8) 16%, rgba(126, 187, 219, 0.8) 100%);
-$sub-color: #ED6D00;
+$sub-color: rgb(235, 109, 0);
 $text-color: #333;
 $bg-color1: #fff;
 $bg-color2: #F0F0F0;
@@ -661,4 +661,51 @@ img {
 
 .work_top {
     @include section_top(none,$pc_section_top_ttl_position,none,$sm_section_top_ttl_position,$pc_section_top_img_right_margin,right,url(../img/work.jpg));
+}
+
+.slider{
+    margin: 80px auto 0;
+    // background: #fff;
+}
+
+.slider_item{
+    @include mq(pc) {
+        
+        margin-right: 50px;
+    }
+
+    @include mq(sm) {
+        margin-right: 20px;
+    }
+
+    &__img{
+        position: relative;
+    }
+
+    &__ttl{
+        margin-top: 20px;
+    }
+}
+
+.slider_part{
+    position: absolute;
+    bottom:-10px;
+    // width: 240px;
+    &__tag{
+        background:rgb(50, 52, 56);
+        color: #fff;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+        &::before{
+            content: "";
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 3px solid $sub-color;
+            margin-right:5px;
+        }
+    }
 }
