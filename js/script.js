@@ -22,7 +22,7 @@ $(function () {
 $('.slider').slick({
   dots: true,
   slidesToShow: 3,
-  initialSlide: 2,
+  initialSlide: 1,
   centerMode: true,
   autoplay: true,
   waitForAnimate: true,
@@ -35,21 +35,21 @@ $('.slider').slick({
       settings: {
         slidesToShow: 3,
         centerPadding: '50px',
-
+        initialSlide: 1,
       }
     }, {
       breakpoint: 768, // 480〜767px以下のサイズに適用
       settings: {
         slidesToShow: 2,
         centerPadding: '15px',
-
+        initialSlide: 1,
       }
     }, {
       breakpoint: 480, // 〜479px以下のサイズに適用
       settings: {
         slidesToShow: 1,
         centerPadding: '15px',
-        
+        initialSlide: 0,
       }
     }
   ]
