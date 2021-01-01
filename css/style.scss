@@ -82,7 +82,7 @@ $breakpoints: ("sm": "screen and (max-width: 767px)", "pc": "screen and (min-wid
     }
 }
 
-@mixin section_top($pc_position_left,$pc_position_right,$sm_position_left,$sm_position_right, $margin,$text_align,$link) {
+@mixin section_top($pc_position_left, $pc_position_right, $sm_position_left, $sm_position_right, $margin, $text_align, $link) {
     display: block;
     position: relative;
 
@@ -242,8 +242,6 @@ img {
     }
 }
 
-
-
 //link-btn
 .btn {
     @include btn__part;
@@ -276,7 +274,7 @@ img {
     max-width: 100%;
     width: 100%;
     padding-top: 5px;
-    z-index: 3;
+    z-index: 10;
 
     &__inner {
         @include inner;
@@ -557,10 +555,10 @@ img {
 ================================================*/
 .news {
     background: transparent;
-}   
+}
 
 .news_top {
-    @include section_top($pc_section_top_ttl_position,none,$sm_section_top_ttl_position,none,$pc_section_top_img_left_margin,left,url(../img/news.jpg));
+    @include section_top($pc_section_top_ttl_position, none, $sm_section_top_ttl_position, none, $pc_section_top_img_left_margin, left, url(../img/news.jpg));
 }
 
 .news_content {
@@ -660,115 +658,172 @@ img {
 ================================================*/
 
 .work_top {
-    @include section_top(none,$pc_section_top_ttl_position,none,$sm_section_top_ttl_position,$pc_section_top_img_right_margin,right,url(../img/work.jpg));
+    @include section_top(none, $pc_section_top_ttl_position, none, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/work.jpg));
 }
 
-.slider{
+.slider {
     margin: 80px auto 0;
+
     // background: #fff;
 }
 
-.slider_item{
+.slider_item {
     @include mq(pc) {
-        
         margin-right: 50px;
     }
+
 
     @include mq(sm) {
         margin-right: 20px;
     }
 
-    &__img{
+
+    &__img {
         position: relative;
     }
 
-    &__ttl{
+    &__ttl {
         margin-top: 20px;
     }
 }
 
-.slider_part{
+.slider_part {
     position: absolute;
-    bottom:-10px;
+    bottom: -10px;
+
     // width: 240px;
-    &__tag{
-        background:rgb(50, 52, 56);
+    &__tag {
+        background: rgb(50, 52, 56);
         color: #fff;
         font-weight: bold;
         display: flex;
         align-items: center;
         padding: 0 5px;
-        &::before{
+
+        &::before {
             content: "";
             display: block;
             width: 10px;
             height: 10px;
             border-radius: 50%;
             border: 3px solid $sub-color;
-            margin-right:5px;
+            margin-right: 5px;
         }
+    }
+}
+
+/*===============================================
+# to_top
+================================================*/
+
+.to_top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    z-index: 5;
+    text-align: center;
+    cursor: pointer;
+    &__arrow {
+        color: $themae-color;
+    }
+    &:hover &__arrow{
+        animation: to_top_animation 1s infinite;
+    }
+}
+
+@keyframes to_top_animation {
+    0% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }
 
 /*===============================================
 # footer
 ================================================*/
-.footer{
-
-    background: rgba(255, 255, 255,.6);
+.footer {
+    background: rgba(255, 255, 255, 0.6);
     padding: 20px 0;
 }
-.footer_nav_list{
+
+.footer_nav_list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     list-style: none;
-    &__item{
+
+    &__item {
         padding: 5px;
         border-left: 1px solid $border-color;
-        border-right:1px solid $border-color ;
-        &_link{
+        border-right: 1px solid $border-color;
+
+        &_link {
             color: $text-color;
         }
     }
 }
 
-.footer_body{
+.footer_body {
     margin-top: 20px;
     text-align: center;
-    &__logo{
+
+    &__logo {
         width: 180px;
         height: 160px;
         margin: 0 auto;
     }
-    &__catchphrase{
+
+    &__catchphrase {
         font-size: 20px;
     }
 }
 
-.footer_address{
+.footer_address {
     display: flex;
     flex-direction: column;
-    &__street_address{
+
+    &__street_address {
         font-size: 13px;
+
         @include mq(sm) {
-            font-size:10px;
+            font-size: 10px;
         }
     }
+
     font-style: normal;
-    &__tell{
+
+    &__tell {
         font-size: 18px;
     }
 }
 
-.footer_adderss__tell--icon{
+.footer_adderss__tell--icon {
     margin-right: 10px;
 }
 
-.footer_footer{
+.footer_footer {
     text-align: center;
-    &__copyright{
+
+    &__copyright {
         font-size: 12px;
-        color:#888;
+        color: #888;
     }
 }
+
+
+/*===============================================
+# about.html
+================================================*/
+
