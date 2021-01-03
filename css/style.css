@@ -917,7 +917,7 @@ img {
 .introduce {
   width: 100%;
   background: url(../img/img_3.jpg) rgba(255, 255, 255, 0.6) center center/cover;
-  height: 50vh;
+  height: 70vh;
   position: relative;
 }
 
@@ -993,19 +993,15 @@ img {
 /*===============================================
 # idea 
 ================================================*/
-.idea {
-  margin-top: 80px;
+@media screen and (min-width: 767px) {
+  .idea {
+    padding: 80px 0;
+  }
 }
 
-@media screen and (min-width: 767px) {
-  .idea_container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 10px;
+@media screen and (max-width: 767px) {
+  .idea {
+    padding: 40px 0;
   }
 }
 
@@ -1015,12 +1011,27 @@ img {
 }
 
 .idea_top__ttl {
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   line-height: 1;
+  z-index: 2;
+}
+
+@media screen and (min-width: 767px) {
+  .idea_top__ttl {
+    top: 50%;
+    left: 155px;
+    right: none;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .idea_top__ttl {
     color: #333;
+    bottom: -120px;
+    left: 22px;
+    right: none;
   }
 }
 
@@ -1052,25 +1063,257 @@ img {
   background: rgba(0, 108, 220, 0.8);
 }
 
-.idea_content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 600px;
-          flex: 1 1 600px;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+.idea_top__img {
+  background: url(../img/news.jpg) center center/cover;
+}
+
+@media screen and (min-width: 767px) {
+  .idea_top__img {
+    margin: 0 0 0 260px;
+    height: 260px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .idea_top__img {
+    position: relative;
+    height: 180px;
+  }
+  .idea_top__img::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.idea_container {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 767px) {
+  .idea_container {
+    margin: 60px auto 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .idea_container {
+    margin: 80px auto 0;
+    padding: 0 20px;
+  }
+}
+
+.idea_body {
+  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 500px;
+          flex: 0 1 500px;
 }
 
 @media screen and (min-width: 767px) {
   .idea_body {
-    margin-top: 20px;
+    max-width: 600px;
+    margin-left: 30px;
   }
 }
 
-.idea_img_wrap {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 400px;
-          flex: 1 0 400px;
-  margin-right: 20px;
+@media screen and (max-width: 767px) {
+  .idea_body {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .idea_body__catchphrase {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .idea_body__catchphrase {
+    font-size: 30px;
+    line-height: 1.4;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .idea_body__text {
+    font-size: 14px;
+  }
+}
+
+.idea_body_img {
+  position: relative;
+}
+
+@media screen and (min-width: 767px) {
+  .idea_body_img {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 380px;
+            flex: 0 0 380px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .idea_body_img__item {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+
+.idea_body_img::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  display: block;
+  width: 100%;
+  background: #88888899;
+}
+
+@media screen and (min-width: 767px) {
+  .idea_body_img::after {
+    height: 253px;
+    top: 50%;
+    left: 0px;
+    -webkit-transform: translateY(-45%) translateX(15px);
+            transform: translateY(-45%) translateX(15px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .idea_body_img::after {
+    height: 100%;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+/*===============================================
+# history
+================================================*/
+@media screen and (min-width: 767px) {
+  .history {
+    padding: 80px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .history {
+    padding: 40px 0;
+  }
+}
+
+.history_top {
+  display: block;
+  position: relative;
+}
+
+.history_top__ttl {
+  position: absolute;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  line-height: 1;
+  z-index: 2;
+}
+
+@media screen and (min-width: 767px) {
+  .history_top__ttl {
+    top: 50%;
+    left: none;
+    right: 155px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .history_top__ttl {
+    color: #333;
+    bottom: -120px;
+    left: none;
+    right: 22px;
+  }
+}
+
+.history_top__ttl--en {
+  display: block;
+  font-weight: bold;
+  font-size: 70px;
+  font-family: "Roboto", sans-serif;
+}
+
+.history_top__ttl--jp {
+  display: block !important;
+  margin-top: 10px;
+  font-size: 23px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.history_top__ttl::after {
+  content: "";
+  font-family: "Roboto";
+  position: absolute;
+  z-index: -1;
+  top: 41px;
+  left: -9px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 108, 220, 0.8);
+}
+
+.history_top__img {
+  background: url(../img/history.jpg) center center/cover;
+}
+
+@media screen and (min-width: 767px) {
+  .history_top__img {
+    margin: 0 260px 0 0;
+    height: 260px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .history_top__img {
+    position: relative;
+    height: 180px;
+  }
+  .history_top__img::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .history_table {
+    margin: 120px auto 0;
+  }
+}
+
+.history_table_row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+  .history_table_row__ttl {
+    text-align: left;
+  }
 }
 /*# sourceMappingURL=style.css.map */

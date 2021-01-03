@@ -162,11 +162,12 @@ $breakpoints: ("sm": "screen and (max-width: 767px)", "pc": "screen and (min-wid
     }
 }
 
-@mixin page_top_img($link){
+@mixin page_top_img($link) {
     width: 100%;
-    background: $link rgba(255, 255, 255, 0.6) center center / cover;
-    height: 50vh;
+    background: $link rgba(255, 255, 255, 0.6) center (center / cover);
+    height: 70vh;
     position: relative;
+
     &::after {
         content: "";
         position: absolute;
@@ -178,7 +179,7 @@ $breakpoints: ("sm": "screen and (max-width: 767px)", "pc": "screen and (min-wid
     }
 }
 
-@mixin page_top($pc_x,$sm_x) {
+@mixin page_top($pc_x, $sm_x) {
     position: relative;
     height: inherit;
 
@@ -331,59 +332,6 @@ img {
         font-weight: bold;
     }
 }
-
-// .page_top {
-//     position: relative;
-//     height: inherit;
-
-//     &__ttl {
-//         position: absolute;
-//         top: 50%;
-//         left: 50%;
-//         z-index: 2;
-//         transform: translateY(-50%) translateX(-50%);
-//         display: block;
-
-//         &--en {
-//             line-height: 1.1;
-//             font-family: $english-fonts;
-//             font-size: 70px;
-
-//             @include mq(sm) {
-//                 font-size: 50px;
-//             }
-
-
-//             display: block;
-//         }
-
-//         &--jp {
-//             font-size: 23px;
-//             display: block;
-//         }
-//     }
-
-//     &::after {
-//         content: "";
-//         position: absolute;
-//         z-index: 1;
-//         top: 50%;
-//         left: 50%;
-//         display: block;
-//         width: 30px;
-//         height: 30px;
-//         background: rgba(235, 109, 0, 0.8);
-
-//         @include mq(pc) {
-//             transform: translateX(-580%) translateY(-50%);
-//         }
-
-
-//         @include mq(sm) {
-//             transform: translateX(-418%) translateY(-50%);
-//         }
-//     }
-// }
 
 /*===============================================
 # header
@@ -953,85 +901,146 @@ img {
     @include page_top_img(url(../img/img_3.jpg));
 }
 
-.introduce_top{
-    @include page_top(-580%,-416%);
+.introduce_top {
+    @include page_top(-580%, -416%);
 }
 
 /*===============================================
 # idea 
 ================================================*/
 .idea {
-    margin-top: 80px;
-}
-
-.idea_container {
     @include mq(pc) {
-        display: flex;
-        max-width: 1000px;
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 10px;
+        padding: 80px 0; 
+    }
+    @include mq(sm) {
+        padding:40px 0;
     }
 }
 
 .idea_top {
-    // @include title(none, $pc_section_top_ttl_position, none, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, none);
-
-    display: block;
-    position: relative;
-
-    &__ttl {
-        line-height: 1;
-
-        @include mq(sm) {
-            color: #333;
-        }
-
-
-        &--en {
-            display: block;
-            font-weight: bold;
-            font-size: 70px;
-            font-family: $english-fonts;
-        }
-
-        &--jp {
-            display: block !important;
-            margin-top: 10px;
-            font-size: 23px;
-            font-weight: bold;
-            text-align: left;
-        }
-
-        &::after {
-            content: "";
-            font-family: "Roboto";
-            position: absolute;
-            z-index: -1;
-            top: 41px;
-            left: -9px;
-
-            // transform: translateY(-70%);
-            display: block;
-            width: 30px;
-            height: 30px;
-            background: rgba(0, 108, 220, 0.8);
-        }
-    }
+    @include title($pc_section_top_ttl_position, none, $sm_section_top_ttl_position, none, $pc_section_top_img_left_margin, left, url(../img/news.jpg));
 }
 
-.idea_content {
-    flex: 1 1 600px;
-    order: 1;
+.idea_container {
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 20px;
+
+    @include mq(pc) {
+        margin: 60px auto 0;
+        display: flex;
+    }
+
+
+    @include mq(sm) {
+        margin: 80px auto 0;
+        padding: 0 20px;
+    }
 }
 
 .idea_body {
+    width: 100%;
+    flex: 0 1 500px;
+    
     @include mq(pc) {
-        margin-top: 20px;
+        max-width: 600px;
+        margin-left: 30px;
+    }
+    @include mq(sm) {
+        margin-top: 15px;
+    }
+
+
+    &__catchphrase {
+        @include mq(pc) {
+            font-size: 32px;
+            
+        }
+        @include mq(sm) {        
+            font-size: 30px;
+            line-height: 1.4;
+        }
+    }
+
+    &__text{
+        @include mq(sm) {
+            font-size: 14px;
+        }
     }
 }
 
-.idea_img_wrap {
-    flex: 1 0 400px;
-    margin-right: 20px;
+.idea_body_img {
+    
+    position: relative;
+    @include mq(pc) {
+        flex: 0 0 380px;
+    }
+
+
+    &__item {
+        @include mq(pc) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        display: block;
+        width: 100%;
+        background: #88888899;
+        @include mq(pc) {           
+            height: 253px;
+            top: 50%;
+            left: 0px;
+            transform: translateY(-45%) translateX(15px);
+        }
+
+        @include mq(sm) {
+            height: 100%;
+            top:10px;
+            left:10px;
+        }
+    }
+}
+
+/*===============================================
+# history
+================================================*/
+.history {
+    @include mq(pc) {
+        padding: 80px 0; 
+    }
+    @include mq(sm) {
+        padding:40px 0;
+    }
+}
+
+.history_top {
+    @include title(none, $pc_section_top_ttl_position, none, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/history.jpg));
+}
+
+
+.history_table{
+
+    @include mq(sm) {
+        margin: 120px auto 0;
+    }
+}
+
+.history_table_row{
+    display: flex;
+    flex-direction: column;
+    &__ttl{
+        @include mq(pc) {
+            
+        }
+        @include mq(sm) {
+            
+            text-align: left;
+        }
+    }
 }
