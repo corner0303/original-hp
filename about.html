@@ -9,23 +9,23 @@
   <!-- ビューポートの設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- ディスクリプション -->
-  <meta name="description" content="">
+  <meta name="description" content="COMPANYNAMEのホームページです">
   <!-- キーワード -->
   <meta name="keywords" content="キーワード1,キーワード2,キーワード3">
   <!-- サムネイル設定 -->
-  <meta name=”thumbnail” content=”” />
+  <meta name=”thumbnail” content="./img/logo.png" />
   <!-- ファビコン -->
   <link rel="shortcut icon" href="./img/favicon.jpg">
   <!-- OGP -->
   <meta property="og:url" content="ページのURL">
-  <meta property="og:type" content="ページの種類">
-  <meta property="og:title" content="ページのタイトル">
-  <meta property="og:description" content="ページの説明文">
+  <meta property="og:type" content="HOME">
+  <meta property="og:title" content="オリジナルHP:企業紹介">
+  <meta property="og:description" content="オリジナルHPの企業紹介ページ">
   <meta property="og:image" content="画像のURL">
   <meta property="og:site_name" content="サイトの名前">
   <meta property="og:locale" content="ja_JP">
 
-  <title>オリジナルHP</title>
+  <title>企業紹介:オリジナルHP</title>
 
   <!-- reset.css -->
   <link rel="stylesheet" href="./css/reset.css">
@@ -60,9 +60,9 @@
     <div class="header__inner">
       <div class="header_container">
         <div class="header_left">
-          <div class="header_left__logo">
-            <a href="#"><img src="./img/logo.png" alt="企業のロゴです"></a>
-          </div>
+          <h1 class="header_left__logo">
+            <a href="https://corner0303.github.io/original-hp/"><img src="./img/logo.png" alt="企業のロゴです"></a>
+          </h1>
         </div>
         <!-- ./header_left -->
         <div class="header_right">
@@ -85,7 +85,8 @@
 
     <nav class="gnav">
       <ul class="gnav_list">
-        <li class="gnav_list__item"><a class="gnav_list__item_link" href="">企業紹介</a></li>
+        <li class="gnav_list__item gnav_list__item--active"><a class="gnav_list__item_link"
+            href="https://corner0303.github.io/original-hp/about.html">企業紹介</a></li>
         <li class="gnav_list__item"><a class="gnav_list__item_link" href="">NEWS</a></li>
         <li class="gnav_list__item"><a class="gnav_list__item_link" href="">IRについて</a></li>
         <li class="gnav_list__item"><a class="gnav_list__item_link" href="">アクセス</a></li>
@@ -95,214 +96,38 @@
     </nav>
     <!-- /.gnav -->
   </header>
-
-  <div class="mainvisual">
-    <!-- /.mainvisual__bg -->
-    <div class="mainvisual_content">
-      <strong class="mainvisual_content__text"><span
-          class="mainvisual_content__text--emphasis">キャッチフレーズ</span>が入ります</strong>
-      <div class="btn btn--mainvisual">
-        <a href="" class="btn__link">企業紹介へ</a>
-      </div>
-    </div>
-    <!-- /.main_content -->
-  </div>
-  <!-- /.mainvisual -->
-
-  <section class="news section">
-    <div class="news_top section_top">
-      <h2 class="news_top__ttl section_top__ttl"><span class="news_top__ttl--en section_top__ttl--en">NEWS</span><span
-          class="news_top__ttl--jp section_top__ttl--jp">ニュース</span>
+  <div class="introduce">
+    <div class="introduce_top page_top">
+      <h2 class="introduce_top__ttl page_top__ttl"><span
+          class="introduce_top__ttl--en page_top__ttl--en">COMPANY</span><span
+          class="introduce_top__ttl--jp page_top__ttl--jp">企業紹介</span>
       </h2>
-      <div class="news_top__img section_top__img"></div>
     </div>
-    <!-- /.news_top -->
-    <div class="news__inner section__inner">
-      <div class="news_content">
-        <article class="news_list">
-          <a class="news_item">
-            <span class="news_item__category news_item__category--blue">ブログ</span>
-            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
-            <p class="news_item__ttl">テキストテキストテキストテキストテキスト</p>
-          </a>
-        </article>
-        <!-- /.news_list -->
-        <article class="news_list">
-          <a class="news_item">
-            <span class="news_item__category news_item__category--blue">ブログ</span>
-            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
-            <p class="news_item__ttl">テキストテキストテキストテキストテキスト</p>
-          </a>
-        </article>
-        <!-- /.news_list -->
-        <article class="news_list">
-          <a class="news_item">
-            <span class="news_item__category news_item__category--orange">イベント情報</span>
-            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
-            <p class="news_item__ttl">テキストテキストテキストテキストテキスト</p>
-          </a>
-        </article>
-        <!-- /.news_list -->
-        <article class="news_list">
-          <a class="news_item">
-            <span class="news_item__category news_item__category--blue">ブログ</span>
-            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
-            <p class="news_item__ttl">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-          </a>
-        </article>
-        <!-- /.news_list -->
-        <article class="news_list">
-          <a class="news_item">
-            <span class="news_item__category news_item__category--red">お知らせ</span>
-            <time class="news_item__date" datetime="2020-12-26">2020.12.26</time>
-            <p class="news_item__ttl">テキストテキストテキストテキストテキスト</p>
-          </a>
-        </article>
-        <!-- /.news_list -->
-        <div class="btn btn--news">
-          <a href="" class="btn__link">もっと見る</a>
+  </div>
+  <!-- /.introduce -->
+  <section class="idea">
+    <div class="idea_container">
+      <div class="idea_content">
+        <div class="idea_top">
+          <h2 class="idea_top__ttl"><span class="idea_top__ttl--en">IDEA</span><span
+            class="idea_top__ttl--jp">経営理念</span>
+          </h2>
         </div>
-        <!-- /.btn -->
+        <div class="idea_body">
+          <p class="idea_body__text">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+          <!-- /.idea_body__text -->
+        </div>
+        <!-- /.idea_body -->
       </div>
-      <!-- /.news_content -->
+      <!-- /.idea_content -->
+      <div class="idea_img_wrap">
+        <img src="./img/img_3.jpg" alt="" class="idea_img">
+      </div>
+      <!-- /.idea_img_wrap -->
     </div>
-    <!-- /.section__inner -->
+    <!-- /.idea_container -->
   </section>
-  <!-- /.news -->
-
-  <section class="section work">
-    <div class="work_top section_top">
-      <h2 class="work_top__ttl section_top__ttl"><span class="work_top__ttl--en section_top__ttl--en">WORK</span><span
-          class="work_top__ttl--jp section_top__ttl--jp">実績</span></h2>
-      <div class="work_top__img section_top__img"></div>
-      <!-- /.work_top__img -->
-    </div>
-    <!-- /.work__top -->
-    <!-- /.work__ttl -->
-    <ul class="slider">
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-        </div>
-        <!-- /.part -->
-        <span class="slider_item__img--part"></span>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。1</h3>
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。2</h3>
-
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。3</h3>
-
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。4</h3>
-
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。5</h3>
-
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。6</h3>
-
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。7</h3>
-
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。8</h3>
-
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。9</h3>
-
-      </li>
-      <li class="slider_item">
-        <div class="slider_item__img">
-          <img src="./img/work_item.jpg" alt="実績の画像">
-          <div class="slider_part">
-            <span class="slider_part__tag">○○事業</span>
-            <!-- /.part__category -->
-          </div>
-          <!-- /.part -->
-        </div>
-        <h3 class="slider_item__ttl">実績タイトルが入ります。10</h3>
-
-      </li>
-    </ul>
-    <!-- /.slider -->
-  </section>
-  <!-- /.work -->
+  <!-- /.idea -->
   <div class="to_top" id="to_top">
     <a href="">
       <i class="to_top__arrow fas fa-arrow-up"></i>
@@ -314,7 +139,8 @@
     <div class="footer_top">
       <div class="footer_nav">
         <ul class="footer_nav_list">
-          <li class="footer_nav_list__item"><a class="footer_nav_list__item_link" href="">企業紹介</a></li>
+          <li class="footer_nav_list__item"><a class="footer_nav_list__item_link"
+              href="https://corner0303.github.io/original-hp/about.html">企業紹介</a></li>
           <li class="footer_nav_list__item"><a class="footer_nav_list__item_link" href="">NEWS</a></li>
           <li class="footer_nav_list__item"><a class="footer_nav_list__item_link" href="">IRについて</a></li>
           <li class="footer_nav_list__item"><a class="footer_nav_list__item_link" href="">アクセス</a></li>
@@ -328,14 +154,15 @@
     <!-- /.footer_top -->
     <div class="footer_body">
       <div class="footer_body__logo">
-        <a href="">
+        <a href="https://corner0303.github.io/original-hp/">
           <img src="./img/logo.png" alt="企業のロゴです">
         </a>
       </div>
       <!-- /.footer_body__img -->
       <address class="footer_address">
         <span class="footer_adderss__street_address">○○県○○市○○町○○△△番地の△</span>
-        <span class="footer_adderss__tell"><i class="footer_adderss__tell--icon fas fa-mobile-alt"></i>0120-00-0000</span>
+        <span class="footer_adderss__tell"><i
+            class="footer_adderss__tell--icon fas fa-mobile-alt"></i>0120-00-0000</span>
       </address>
       <!-- /.footer_body__address -->
       <span class="footer_body__catchphrase">キャッチフレーズが入ります</span> <!-- /.catch -->
@@ -343,7 +170,8 @@
     <!-- /.footer_body -->
 
     <div class="footer_footer">
-      <small class="footer_footer__copyright"><span class="footer_footer__copyright--en" lang="en">©</span>2021 CONPANY NAME</small>
+      <small class="footer_footer__copyright"><span class="footer_footer__copyright--en" lang="en">©</span>2021 CONPANY
+        NAME</small>
     </div>
     <!-- /.footer_foote -->
   </footer>
