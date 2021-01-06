@@ -227,7 +227,7 @@ $breakpoints: ("sm": "screen and (max-width: 767px)", "pc": "screen and (min-wid
 
 
         @include mq(sm) {
-            transform: translateX($sm_x) translateY(-50%);
+            transform: translateX($sm_x) translateY(-65%);
         }
     }
 }
@@ -1345,6 +1345,16 @@ img {
 ================================================*/
 .ir_materials_top {
     @include title($pc_section_top_ttl_position, none, $sm_section_top_ttl_position, none, $pc_section_top_img_left_margin, left, url(../img/ir_materials.jpg));
+
+    &__ttl--en {
+        font-size: 56px;
+    }
+
+    @include mq(sm) {
+        &__ttl::after {
+            top: 30px;
+        }
+    }
 }
 
 .ir_materials_content {
@@ -1352,18 +1362,27 @@ img {
     width: 100%;
     padding: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-content: center;
-    margin: 40px auto 0;
     background-color: #FFFfff99;
+
+    @include mq(pc) {
+        margin: 40px auto 0;
+    }
+
+
+    @include mq(sm) {
+        margin: 80px auto 0;
+    }
 }
 
 .ir_materials_ttl {
-    flex: 0 0 160px;
     align-self: center;
-    font-size: 20px;
     text-align: center;
     color: #333;
+    flex: 0 0 160px;
+    font-size: 20px;
 
     &__icon {
         color: rgba(255, 36, 36, 0.7);
@@ -1380,10 +1399,10 @@ img {
 }
 
 .ir_materials_item {
-    flex: 0 1 250px;
     justify-self: center;
     padding: 10px 0;
     color: #333;
+    flex: 0 1 250px;
 
     &:hover {
         text-decoration: underline;
@@ -1391,12 +1410,13 @@ img {
 }
 
 .ir_materials_download {
-    flex: 0 0 160px;
     border: 1px solid #888;
     display: flex;
     text-align: center;
     align-items: center;
     transition: all .3s ease-in-out;
+    flex: 0 0 160px;
+    padding: 10px 0;
 
     &:hover {
         // background: $color-active;
@@ -1406,6 +1426,12 @@ img {
 
 .ir_materials_download_link {
     color: #333;
+
+    @include mq(sm) {
+        display: grid;
+        flex: auto;
+    }
+
 
     &__text {
         font-size: 18px;
@@ -1544,4 +1570,15 @@ img {
             margin-right: 5px;
         }
     }
+}
+
+/*===============================================
+# access.html
+================================================*/
+.access {
+    @include page_top_img(url(../img/access.jpg));
+}
+
+.access_top {
+    @include page_top(-475%, -353%);
 }
