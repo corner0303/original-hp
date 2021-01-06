@@ -8,3 +8,4 @@ workの完成 12/31
 HOMEの完成 12/31
 about.html完成 1/04
 news.htmlの完成 1/04
+ir.htmlの完成 1/06
