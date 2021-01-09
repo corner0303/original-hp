@@ -628,7 +628,7 @@ img {
 }
 
 .news_top {
-    @include title($pc_section_top_ttl_position, none, $sm_section_top_ttl_position, none, $pc_section_top_img_left_margin, left, url(../img/news.jpg));
+    @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/news.jpg));
 }
 
 .news_content {
@@ -790,7 +790,7 @@ img {
 ================================================*/
 
 .work_top {
-    @include title(none, $pc_section_top_ttl_position, none, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/work.jpg));
+    @include title(auto, $pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/work.jpg));
 }
 
 .slider {
@@ -982,7 +982,7 @@ img {
 }
 
 .description_top {
-    @include title($pc_section_top_ttl_position, none, $sm_section_top_ttl_position, none, $pc_section_top_img_left_margin, left, url(../img/description.jpg));
+    @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/description.jpg));
     @include mq(sm) {
         &__ttl {
             left: 8px;
@@ -1113,7 +1113,7 @@ img {
 }
 
 .idea_top {
-    @include title(none, $pc_section_top_ttl_position, none, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/idea.jpg));
+    @include title(auto, $pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/idea.jpg));
 }
 
 .idea_container {
@@ -1228,7 +1228,7 @@ img {
 }
 
 .history_top {
-    @include title($pc_section_top_ttl_position, none, $sm_section_top_ttl_position, none, $pc_section_top_img_left_margin, left, url(../img/history.jpg));
+    @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/history.jpg));
     @include mq(sm) {
         &__ttl {
             left: 8px;
@@ -1344,13 +1344,14 @@ img {
 # ir_materials
 ================================================*/
 .ir_materials_top {
-    @include title($pc_section_top_ttl_position, none, $sm_section_top_ttl_position, none, $pc_section_top_img_left_margin, left, url(../img/ir_materials.jpg));
+    @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/ir_materials.jpg));
     @include mq(sm) {
-        
         &__ttl--en {
             font-size: 56px;
         }
     }
+
+
     @include mq(sm) {
         &__ttl::after {
             top: 30px;
@@ -1459,7 +1460,7 @@ img {
 }
 
 .ir_news_top {
-    @include title(none, $pc_section_top_ttl_position, none, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/ir_news.jpg));
+    @include title(auto, $pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/ir_news.jpg));
 }
 
 .ir_news_content {
@@ -1588,20 +1589,198 @@ img {
 # gmap
 ================================================*/
 
-.gmap_top{
-    @include title($pc_section_top_ttl_position, none, $sm_section_top_ttl_position, none, $pc_section_top_img_left_margin, left, url(../img/gmap.jpg));
+.gmap_top {
+    @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/gmap.jpg));
 }
 
-.gmap_content{
-        position: relative;
-        width: 100%;
-        padding-top: 50%; /* = height ÷ width × 100 */
-        margin-top: 80px;
-      &__iframe {
+.gmap_content {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-top: 80px;
+
+    &__iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 400px;
-      }
+    }
+}
+
+.gmap_link {
+    color: $themae-color;
+    display: inline-block;
+    margin-top: 10px;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/*===============================================
+# employment.html
+================================================*/
+.recruit {
+    @include page_top_img(url(../img/recruit.jpg));
+}
+
+.recruit_top {
+    @include page_top(-475%, -353%);
+}
+
+/*===============================================
+# new_grid
+================================================*/
+.new_grid_top {
+    @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/new_grid.jpg));
+}
+
+.new_grid_content_wrap{
+    @include mq(pc) {
+        margin-top: 50px;     
+    }
+    @include mq(sm) {
+        padding: 0 30px ;
+        margin-top: 80px;
+    }
+}
+
+.new_grid_content {
+    width: 100%;
+    max-width: 600px;
+    border: 0px solid transparent;
+    transition: all .3s;
+    margin: 0 auto;
+    &__img{
+        img{
+            @include mq(pc) {
+                height: 222px;           
+            }
+            @include mq(sm) {
+                max-height: 222px;
+            }
+        }
+    }
+    &__text{
+        @include mq(pc) {
+            font-size: 40px;    
+            margin-left: 10px;
+        }
+        @include mq(sm) {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+    }
+    &:hover{
+        border: 5px solid $themae-color;
+    }
+}
+
+/*===============================================
+#internship 
+================================================*/
+
+.internship_top{
+    @include title(auto, $pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/internship.jpg));
+    &__img{
+
+        &::after{
+            background: rgba(255, 255, 255, 0.3);
+        }
+    }
+}
+
+.internship_content_wrap{
+    @include mq(pc) {
+        margin-top: 50px;     
+    }
+    @include mq(sm) {
+        padding: 0 30px ;
+        margin-top: 80px;
+    }
+}
+
+.internship_content {
+    width: 100%;
+    max-width: 600px;
+    border: 0px solid transparent;
+    transition: all .3s;
+    margin: 0 auto;
+    &__img{
+        img{
+            @include mq(pc) {
+                height: 222px;           
+            }
+            @include mq(sm) {
+                max-height: 222px;
+            }
+        }
+    }
+    &__text{
+        @include mq(pc) {
+            font-size: 40px;    
+            margin-left: 10px;
+        }
+        @include mq(sm) {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+    }
+    &:hover{
+        border: 5px solid $themae-color;
+    }
+}
+
+/*===============================================
+# others
+================================================*/
+.others_top {
+    @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/others.jpg));
+}
+
+.others_content_wrap{
+    @include mq(pc) {
+        margin-top: 50px; 
+        display: flex;    
+    }
+    @include mq(sm) {
+        padding: 0 30px ;
+        margin-top: 80px;
+    }
+}
+
+.others_content {
+    width: 100%;
+    max-width: 350px;
+    border: 0px solid transparent;
+    transition: all .3s;
+    margin: 0 auto;
+    &--handicapped{
+        @include mq(sm) {
+            margin: 30px auto 0;
+        }
+    }
+    &__img{
+        img{
+            @include mq(pc) {
+                height: 222px;           
+            }
+            @include mq(sm) {
+                max-height: 222px;
+            }
+        }
+    }
+    &__text{
+        @include mq(pc) {
+            font-size: 40px;    
+            margin-left: 10px;
+        }
+        @include mq(sm) {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+    }
+    &:hover{
+        border: 5px solid $themae-color;
+    }
 }
