@@ -1,0 +1,87 @@
+<div class="form_item">
+  <dt class="form_item__ttl">
+    個人・法人
+  </dt>
+  <!-- /.form_item__ttl -->
+  <dd class="form_item_body form_item_body---corporate_form">
+    <label for="" class="form_item_radio form_item_radio--individual">
+      <input class="form_item_radio__input form_item_radio__input--individual" type="radio" name="corporate_form" id="">
+      <span class="radio_part radio_part--outer"><span class="radio_part--inner"></span></span>
+        個人
+    </label>
+    <label for="" class="form_item_radio form_item_radio--corporation">
+      <input class="form_item_radio__input form_item_radio__input--corporation" type="radio" name="corporate_form" id="">
+      <span class="radio_part radio_part--outer"><span class="radio_part--inner"></span></span>
+        法人
+    </label>
+  </dd>
+  <!-- /.form_item_input -->
+</div>
+<!-- /.form_item -->
+
+.form_item_radio{
+  display: inline-block;
+  padding-right: 20px;
+  font-size: 18px;
+  line-height: 49px;
+  cursor: pointer;
+  &__input{
+      @include size(1px);
+      opacity: 0; 
+      &:checked + .outer .inner {
+        @include transform(scale(1));
+        opacity: 1;
+      }
+      &:checked + .outer { border: 3px solid $secondary-color; }
+      &:focus + .outer .inner {
+        @include transform(scale(1));
+        opacity: 1;
+        background-color: darken($secondary-color, 10);
+      }
+  }
+  &:hover .radio_part--inner {
+      @include transform(scale(.5));
+      opacity: .5;
+    }
+}
+
+.radio {
+  // Native input control and checked events
+  input {
+    @include size(1px);
+    opacity: 0; // Hide input, but leave it available for tabbing
+    &:checked + .outer .inner {
+      @include transform(scale(1));
+      opacity: 1;
+    }
+    &:checked + .outer { border: 3px solid $secondary-color; }
+    &:focus + .outer .inner {
+      @include transform(scale(1));
+      opacity: 1;
+      background-color: darken($secondary-color, 10);
+    }
+  }
+  
+  // Outer ring of custom radio
+  .outer {
+    @include size(20px);
+    display: block;
+    float: left;
+    margin: 10px 9px 10px 10px;
+    border: 3px solid $primary-color;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+  
+  // Inner ring of custom radio
+  .inner {
+    @include transition(all .25s ease-in-out);
+    @include size(16px);
+    @include transform(scale(0));
+    display: block;
+    margin: 2px;
+    border-radius: 50%;
+    background-color: $secondary-color;
+    opacity: 0;
+  }
+}

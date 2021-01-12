@@ -1,6 +1,10 @@
+/* 外部css
+------------------------------------------------*/
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 /* 色定義
 ------------------------------------------------*/
-$themae-color: #006CDC;
+$themae-color: rgb(0, 108, 220);
 $themae-gradation-color: linear-gradient(to right, rgba(0, 108, 220, 0.8) 16%, rgba(126, 187, 219, 0.8) 100%);
 $sub-color: rgb(235, 109, 0);
 $text-color: #333;
@@ -1635,12 +1639,14 @@ img {
     @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/new_grid.jpg));
 }
 
-.new_grid_content_wrap{
+.new_grid_content_wrap {
     @include mq(pc) {
-        margin-top: 50px;     
+        margin-top: 50px;
     }
+
+
     @include mq(sm) {
-        padding: 0 30px ;
+        padding: 0 30px;
         margin-top: 80px;
     }
 }
@@ -1651,27 +1657,34 @@ img {
     border: 0px solid transparent;
     transition: all .3s;
     margin: 0 auto;
-    &__img{
-        img{
+
+    &__img {
+        img {
             @include mq(pc) {
-                height: 222px;           
+                height: 222px;
             }
+
+
             @include mq(sm) {
                 max-height: 222px;
             }
         }
     }
-    &__text{
+
+    &__text {
         @include mq(pc) {
-            font-size: 40px;    
+            font-size: 40px;
             margin-left: 10px;
         }
+
+
         @include mq(sm) {
             font-size: 18px;
             margin-left: 5px;
         }
     }
-    &:hover{
+
+    &:hover {
         border: 5px solid $themae-color;
     }
 }
@@ -1680,22 +1693,24 @@ img {
 #internship 
 ================================================*/
 
-.internship_top{
+.internship_top {
     @include title(auto, $pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/internship.jpg));
-    &__img{
 
-        &::after{
+    &__img {
+        &::after {
             background: rgba(255, 255, 255, 0.3);
         }
     }
 }
 
-.internship_content_wrap{
+.internship_content_wrap {
     @include mq(pc) {
-        margin-top: 50px;     
+        margin-top: 50px;
     }
+
+
     @include mq(sm) {
-        padding: 0 30px ;
+        padding: 0 30px;
         margin-top: 80px;
     }
 }
@@ -1706,27 +1721,34 @@ img {
     border: 0px solid transparent;
     transition: all .3s;
     margin: 0 auto;
-    &__img{
-        img{
+
+    &__img {
+        img {
             @include mq(pc) {
-                height: 222px;           
+                height: 222px;
             }
+
+
             @include mq(sm) {
                 max-height: 222px;
             }
         }
     }
-    &__text{
+
+    &__text {
         @include mq(pc) {
-            font-size: 40px;    
+            font-size: 40px;
             margin-left: 10px;
         }
+
+
         @include mq(sm) {
             font-size: 18px;
             margin-left: 5px;
         }
     }
-    &:hover{
+
+    &:hover {
         border: 5px solid $themae-color;
     }
 }
@@ -1738,13 +1760,15 @@ img {
     @include title($pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, auto, $pc_section_top_img_left_margin, left, url(../img/others.jpg));
 }
 
-.others_content_wrap{
+.others_content_wrap {
     @include mq(pc) {
-        margin-top: 50px; 
-        display: flex;    
+        margin-top: 50px;
+        display: flex;
     }
+
+
     @include mq(sm) {
-        padding: 0 30px ;
+        padding: 0 30px;
         margin-top: 80px;
     }
 }
@@ -1755,32 +1779,365 @@ img {
     border: 0px solid transparent;
     transition: all .3s;
     margin: 0 auto;
-    &--handicapped{
+
+    &--handicapped {
         @include mq(sm) {
             margin: 30px auto 0;
         }
     }
-    &__img{
-        img{
+
+    &__img {
+        img {
             @include mq(pc) {
-                height: 222px;           
+                height: 222px;
             }
+
+
             @include mq(sm) {
                 max-height: 222px;
             }
         }
     }
-    &__text{
+
+    &__text {
         @include mq(pc) {
-            font-size: 40px;    
+            font-size: 40px;
             margin-left: 10px;
         }
+
+
         @include mq(sm) {
             font-size: 18px;
             margin-left: 5px;
         }
     }
-    &:hover{
+
+    &:hover {
         border: 5px solid $themae-color;
+    }
+}
+
+/*===============================================
+# contact.html
+================================================*/
+
+.contact {
+    @include page_top_img(url(../img/contact.jpg));
+}
+
+.contact_top {
+    @include page_top(-535%, -390%);
+}
+
+/*===============================================
+# web_form
+================================================*/
+.contact_web_top {
+    @include title(auto, $pc_section_top_ttl_position, auto, $sm_section_top_ttl_position, $pc_section_top_img_right_margin, right, url(../img/contact_web.jpg));
+}
+
+.contact_content {
+    max-width: 1000px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+
+    @include mq(pc) {
+        margin: 50px auto 0;
+        padding: 40px;
+    }
+
+
+    @include mq(sm) {
+        margin: 80px auto 0;
+        padding: 20px;
+    }
+}
+
+.contact_content_top {
+    text-align: center;
+    line-height: 1.2;
+
+    &__text {
+        font-size: 20px;
+    }
+
+    &__tell {
+        font-size: 38px;
+        color: $themae-color;
+    }
+
+    &__date {
+        font-size: 13px;
+    }
+}
+
+.contact_form {
+    margin-top: 30px;
+
+    &__text {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+.form_items {
+    margin-top: 20px;
+}
+
+.form_item {
+    margin-top: 20px;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    @include mq(pc) {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+    }
+
+
+    @include mq(sm) {
+        display: block;
+        height: auto;
+    }
+
+
+    &--content {
+        height: auto;
+    }
+
+    &__ttl {
+        @include mq(pc) {
+            padding: 15px;
+            flex: 0 0 200px;
+            display: flex;
+            align-items: center;
+        }
+
+
+        @include mq(sm) {
+            padding: 5px;
+        }
+
+
+        &--mandatory {
+            background-color: rgba(255, 36, 36, 0.7);
+            padding: 3px;
+            color: #fff;
+
+            @include mq(pc) {
+                margin-left: auto;
+            }
+
+
+            @include mq(sm) {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.form_item_body {
+    display: flex;
+
+    @include mq(pc) {
+        flex: 0 1 500px;
+    }
+
+
+    &__input {
+        flex: 1 1 100%;
+        border-radius: 10px;
+        outline: none;
+        padding: 0 10px;
+        border: 2px solid #999;
+        background: #FFF;
+        transition: all .3s;
+
+        @include mq(sm) {
+            height: 50px;
+        }
+
+
+        &:focus {
+            border: 2px solid $themae-color;
+            background: $color-active;
+        }
+
+        &:nth-child(2n) {
+            @include mq(pc) {
+                margin-left: 30px;
+            }
+
+
+            @include mq(sm) {
+                margin-left: 10px;
+            }
+        }
+
+        &--last, &--first {
+            @include mq(sm) {
+                min-width: 108px;
+                flex: 0 1 calc(50% - 10px);
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    &__textarea {
+        flex: 1 1 100%;
+        border-radius: 10px;
+        outline: none;
+        padding: 0 10px;
+        border: 2px solid #999;
+        background: #FFF;
+        transition: all .3s;
+        height: 100px;
+        resize: vertical;
+
+        @include mq(sm) {
+            height: 50px;
+        }
+
+
+        &:focus {
+            border: 2px solid $themae-color;
+            background: $color-active;
+        }
+    }
+}
+.input_success{
+    background: rgba(0, 255, 85,.7);
+}
+.input_error{
+    background: rgba(255, 36, 36, 0.7);
+    &::placeholder {
+        color: rgba(255, 255, 17, 0.8);
+        font-weight: bold;
+      }  
+      // IE
+      &:-ms-input-placeholder {
+        color: rgba(255, 255, 17, 0.8);
+        font-weight: bold;
+      }
+    
+      // Edge
+      &::-ms-input-placeholder {
+        color: rgba(255, 255, 17, 0.8);
+        font-weight: bold;
+      }
+}
+
+.form_item__privacy {
+    margin-top: 20px;
+    height: 150px;
+    background: #FFF;
+    overflow: scroll;
+
+    @include mq(pc) {
+        padding: 20px;
+    }
+
+
+    @include mq(sm) {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+
+    &--ttl {
+        text-align: center;
+
+        @include mq(pc) {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+
+        @include mq(sm) {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.form_item_check {
+    display: flex;
+    margin-top: 30px;
+    justify-content: center;
+
+    &__part {
+        flex: 0 0 30px;
+        cursor: pointer;
+
+        &::before {
+            content: "\f096";
+            font-family: FontAwesome;
+            display: inline-block;
+            letter-spacing: 10px;
+            font-size: 25px;
+            vertical-align: text-top;
+            text-align: center;
+            color:#999;
+        }
+    }
+    
+    &__input {
+       visibility: hidden;
+    }
+    
+    &__input:checked + &__part::before {
+        content: "\f046";
+        letter-spacing: 5px;
+        color: $themae-color;
+    }
+
+    &__text {
+        align-self: center;
+    }
+}
+
+.form_submit {
+    text-align: center;
+    margin-top: 10px;
+
+    &__btn {
+        position: relative;
+        width: 180px;
+        height: 60px;
+        line-height: 30px;
+        background: #221188;
+        color: #FFF;
+        box-shadow: 1px 5px 5px #33333399;
+        transition: all .3s;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 12px 12px;
+            border-color: transparent transparent #eeff00 transparent;
+            line-height: 0px;
+            _border-color: #000000 #000000 #eeff00  #000000;
+            _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+            transition: all .3s;
+        }
+
+        &:disabled {
+            background: #888;
+            // color: #333;
+
+            &::after {
+                border-color: transparent transparent #555 transparent;
+                line-height: 0px;
+                _border-color: #000000 #000000 #555  #000000;
+                _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
+            }
+        }
     }
 }

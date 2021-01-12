@@ -9,3 +9,7 @@ HOMEの完成 12/31
 about.html完成 1/04
 news.htmlの完成 1/04
 ir.htmlの完成 1/06
+enployment.htmlの完成 1/10
+contact.htmlの完成 まだ
+サイトマップの完成 まだ
+アニメーションの作成&追加 まだ
