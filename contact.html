@@ -169,7 +169,29 @@
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body--tell">
-              <input class="form_item_body__input form_item_body__input--tell" type="tel" name="" id="" placeholder="例）0120-00-0000">
+              <input class="form_item_body__input form_item_body__input--tell" type="tel" name="" id="" placeholder="例）0120000000">
+            </dd>
+            <!-- /.form_item_input -->
+          </div>
+          <!-- /.form_item -->
+          <div class="form_item">
+            <dt class="form_item__ttl">
+              郵便番号(7桁)
+            </dt>
+            <!-- /.form_item__ttl -->
+            <dd class="form_item_body form_item_body--postal_code">
+             <span class="form_item_body__postal_code_part">〒</span> <input class="form_item_body__input form_item_body__input--postal_code" type="text" name="zip11" id="" placeholder="例）1500002" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+            </dd>
+            <!-- /.form_item_input -->
+          </div>
+          <!-- /.form_item -->
+          <div class="form_item">
+            <dt class="form_item__ttl">
+              住所
+            </dt>
+            <!-- /.form_item__ttl -->
+            <dd class="form_item_body form_item_body--address">
+              <input class="form_item_body__input form_item_body__input--address" type="text" name="addr11"  id="" placeholder="例）東京都中央区日本橋人形町">
             </dd>
             <!-- /.form_item_input -->
           </div>
@@ -177,6 +199,7 @@
           <div class="form_item form_item--content">
             <dt class="form_item__ttl">
               お問い合わせ内容
+              <span class="form_item__ttl--mandatory">必須</span>
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body--content">
@@ -267,6 +290,7 @@
   <script>
     new WOW().init();
   </script>
+  <script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
   <script src="./js/slick.js"></script>
   <script src="./js/slick.min.js"></script>
   <script src="./js/script.js"></script>

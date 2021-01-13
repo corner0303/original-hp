@@ -3318,6 +3318,16 @@ img {
   }
 }
 
+.form_item_body__postal_code_part {
+  font-size: 24px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 20px;
+          flex: 0 0 20px;
+  margin-right: 10px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
 .form_item_body__input {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 100%;
@@ -3343,13 +3353,13 @@ img {
 }
 
 @media screen and (min-width: 767px) {
-  .form_item_body__input:nth-child(2n) {
+  .form_item_body__input--last:nth-child(2n), .form_item_body__input--first:nth-child(2n) {
     margin-left: 30px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .form_item_body__input:nth-child(2n) {
+  .form_item_body__input--last:nth-child(2n), .form_item_body__input--first:nth-child(2n) {
     margin-left: 10px;
   }
 }
@@ -3378,6 +3388,7 @@ img {
   transition: all .3s;
   height: 100px;
   resize: vertical;
+  padding: 10px;
 }
 
 @media screen and (max-width: 767px) {
@@ -3392,7 +3403,7 @@ img {
 }
 
 .input_success {
-  background: rgba(0, 255, 85, 0.7);
+  background: rgba(0, 255, 85, 0.5);
 }
 
 .input_error {
@@ -3427,6 +3438,27 @@ img {
 .input_error::-ms-input-placeholder {
   color: rgba(255, 255, 17, 0.8);
   font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  .input_error::-webkit-input-placeholder {
+    font-size: 10px;
+  }
+  .input_error:-ms-input-placeholder {
+    font-size: 10px;
+  }
+  .input_error::-ms-input-placeholder {
+    font-size: 10px;
+  }
+  .input_error::placeholder {
+    font-size: 10px;
+  }
+  .input_error:-ms-input-placeholder {
+    font-size: 10px;
+  }
+  .input_error::-ms-input-placeholder {
+    font-size: 10px;
+  }
 }
 
 .form_item__privacy {
@@ -3527,6 +3559,8 @@ img {
           box-shadow: 1px 5px 5px #33333399;
   -webkit-transition: all .3s;
   transition: all .3s;
+  -webkit-transform: translateX(0px) translateY(0px);
+          transform: translateX(0px) translateY(0px);
 }
 
 .form_submit__btn::after {
@@ -3548,6 +3582,10 @@ img {
 
 .form_submit__btn:disabled {
   background: #888;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: translateX(1px) translateY(5px);
+          transform: translateX(1px) translateY(5px);
 }
 
 .form_submit__btn:disabled::after {

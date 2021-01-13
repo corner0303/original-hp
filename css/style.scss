@@ -1946,6 +1946,12 @@ img {
         flex: 0 1 500px;
     }
 
+    &__postal_code_part{
+        font-size: 24px;
+        flex: 0 0 20px;
+        margin-right: 10px;
+        justify-self: center;
+    }
 
     &__input {
         flex: 1 1 100%;
@@ -1966,24 +1972,26 @@ img {
             background: $color-active;
         }
 
-        &:nth-child(2n) {
-            @include mq(pc) {
-                margin-left: 30px;
-            }
-
-
-            @include mq(sm) {
-                margin-left: 10px;
-            }
-        }
-
+        
         &--last, &--first {
+            &:nth-child(2n) {
+                @include mq(pc) {
+                    margin-left: 30px;
+                }
+    
+    
+                @include mq(sm) {
+                    margin-left: 10px;
+                }
+            }
             @include mq(sm) {
                 min-width: 108px;
                 flex: 0 1 calc(50% - 10px);
                 flex-wrap: wrap;
             }
         }
+
+        
     }
 
     &__textarea {
@@ -1996,7 +2004,7 @@ img {
         transition: all .3s;
         height: 100px;
         resize: vertical;
-
+        padding: 10px;
         @include mq(sm) {
             height: 50px;
         }
@@ -2008,26 +2016,46 @@ img {
         }
     }
 }
-.input_success{
-    background: rgba(0, 255, 85,.7);
+
+.input_success {
+    background: rgba(0, 255, 85, 0.5);
 }
-.input_error{
+
+.input_error {
     background: rgba(255, 36, 36, 0.7);
+
     &::placeholder {
         color: rgba(255, 255, 17, 0.8);
         font-weight: bold;
-      }  
-      // IE
-      &:-ms-input-placeholder {
+    }
+
+    // IE
+    &:-ms-input-placeholder {
         color: rgba(255, 255, 17, 0.8);
         font-weight: bold;
-      }
-    
-      // Edge
-      &::-ms-input-placeholder {
+    }
+
+    // Edge
+    &::-ms-input-placeholder {
         color: rgba(255, 255, 17, 0.8);
         font-weight: bold;
-      }
+    }
+
+    @include mq(sm) {
+        &::placeholder {
+            font-size: 10px;
+        }
+
+        // IE
+        &:-ms-input-placeholder {
+            font-size: 10px;
+        }
+
+        // Edge
+        &::-ms-input-placeholder {
+            font-size: 10px;
+        }
+    }
 }
 
 .form_item__privacy {
@@ -2080,14 +2108,14 @@ img {
             font-size: 25px;
             vertical-align: text-top;
             text-align: center;
-            color:#999;
+            color: #999;
         }
     }
-    
+
     &__input {
-       visibility: hidden;
+        visibility: hidden;
     }
-    
+
     &__input:checked + &__part::before {
         content: "\f046";
         letter-spacing: 5px;
@@ -2112,6 +2140,7 @@ img {
         color: #FFF;
         box-shadow: 1px 5px 5px #33333399;
         transition: all .3s;
+        transform: translateX(0px) translateY(0px);
         &::after {
             content: "";
             position: absolute;
@@ -2130,6 +2159,8 @@ img {
 
         &:disabled {
             background: #888;
+            box-shadow: none;
+            transform: translateX(1px) translateY(5px);
             // color: #333;
 
             &::after {
