@@ -89,22 +89,25 @@ $(function () {
   let $submit = $("#contact-btn");//送信ボタンに指定されたIDを定義
   let $checked = false;
   let $val = false;
-  let $kana = false;
+  let $kanaLast = false;
+  let $kanaFirst = false;
   function btn_submit() {
-    if ($checked == true && $val == true && $kana == true) {
+    if ($checked == true && $val == true && $kanaLast == true && $kanaFirst == true) {
       $submit.prop("disabled", false)
+      console.log("success2")
     } else {
       $submit.prop("disabled", true)
+      console.log("false1")
     }
   }
   $("#check_trigger").click(function () {
-    if ($("#js_form input[type='checkbox']").attr('checked') == "checked") {
-      $checked = false;
+    $(this).toggleClass("is-checked")
+    if ($("#check_trigger").hasClass("is-checked")) {
+      $checked = true;
       console.log($checked)
       btn_submit()
     } else {
-      //バグなのか何故か反対になっている
-      $checked = true;
+      $checked = false;
       console.log($checked)
       btn_submit()
     }
@@ -113,15 +116,17 @@ $(function () {
   $('#js_form input[data-required="required0"]').blur(function () {
     //空値及びカナ以外の値が入っていないかチェックするバリデーション
     emptyCheck($(this));
+    btn_submit()
   });
   $('#js_form input[data-required="required1"]').blur(function () {
-    1
     //空値及びカナ以外の値が入っていないかチェックするバリデーション
     emptyCheck($(this));
+    btn_submit()
   });
   $('#js_form input[data-required="required4"]').blur(function () {
     //空値及びカナ以外の値が入っていないかチェックするバリデーション
-    // emptyCheck($(this));
+    emptyCheck($(this));
+    btn_submit()
     gmailCheck($(this));
   });
   $('#js_form input[type="tel"]').blur(function () {
@@ -130,23 +135,40 @@ $(function () {
   $('#js_form .form_item_body__input--postal_code').blur(function () {
     numberCheck($(this));
   });
+  $('#js_form .form_item_body__input--address').blur(function () {
+    let val = $(this).val()
+    if (!$(this).val() == "") {
+      //valueを一度リセットしてもう一回入れるとなんか行ける
+      $(this).val("")
+      $(this).val(val)
+      $(this).addClass("input_success")
+    } else {
+      $(this).removeClass("input_success")
+    }
+    inputReset($(this))
+  });
   $('#js_form textarea[data-required="required5"]').blur(function () {
     //空値及びカナ以外の値が入っていないかチェックするバリデーション
     emptyCheck($(this));
+    btn_submit()
   });
   $('#js_form input[data-kana="katakana--last"]').blur(function () {
     //ひらがなを自動変換するイベントの呼び出し
     kanaChange($(this));
-    //
+    emptyCheckKanaLast($(this));
+    btn_submit()
+    inputReset(ele)
+    
     //空値及びカナ以外の値が入っていないかチェックするバリデーション
-    emptyCheckKana($(this));
   });
   $('#js_form input[data-kana="katakana--first"]').blur(function () {
     //ひらがなを自動変換するイベントの呼び出し
     kanaChange($(this));
-    //
+    emptyCheckKanaFirst($(this));
+    btn_submit()
+    inputReset(ele)
+
     //空値及びカナ以外の値が入っていないかチェックするバリデーション
-    emptyCheckKana($(this));
   });
 
   kanaChange = function (ele) {
@@ -160,22 +182,66 @@ $(function () {
 
     if (val.match(/[ぁ-ん]/g)) {
       $(ele).val(kana)
-      ele.addClass("input_success")
     }
 
   };
 
-  emptyCheckKana = function (ele) {
+  emptyCheck = function (ele) {
     let placeholder = ele.attr("placeholder")
     let val = ele.val();
     console.log(placeholder)
     if (val == "") {
       ele.addClass("input_error")
-      $kana = false;
+      ele.attr("placeholder", "入力されていません");
+    }
+    else {
+      //valueを一度リセットしてもう一回入れるとなんか行ける
+      ele.val("")
+      ele.val(val)
+      ele.removeClass("input_error")
+      ele.addClass("input_success")
+    }
+
+  };
+  emptyCheckKanaLast = function (ele) {
+    let placeholder = ele.attr("placeholder")
+    let val = ele.val();
+    console.log(placeholder)
+    inputReset(ele)
+    if (val == "") {
+      ele.addClass("input_error")
+      $kanaLast = false;
+      ele.attr("placeholder", "入力されていません");
+    }
+    else if (val.match(/[^ぁ-んァ-ン　\s]+/)) {
+      ele.addClass("input_error")
+      ele.attr("placeholder", "全角カナで入力ください。");
+      ele.val("")
+      $kanaLast = false;
+    }
+
+    else {
+      //valueを一度リセットしてもう一回入れるとなんか行ける
+      ele.val("")
+      ele.val(val)
+      $kanaLast = true;
+      ele.removeClass("input_error")
+      ele.addClass("input_success")
+    }
+  };
+  emptyCheckKanaFirst = function (ele) {
+    let placeholder = ele.attr("placeholder")
+    let val = ele.val();
+    inputReset(ele)
+
+    if (val == "") {
+      ele.addClass("input_error")
+      $kanaFirst = false;
       ele.attr("placeholder", "入力されていません");
       ele.focusin(function () {
         ele.attr("placeholder", placeholder);
         ele.removeClass("input_error")
+        ele.removeClass("input_success")
         console.log(placeholder)
       })
     }
@@ -183,45 +249,24 @@ $(function () {
       ele.addClass("input_error")
       ele.attr("placeholder", "全角カナで入力ください。");
       ele.val("")
-      $kana = false;
-      ele.focusin(function () {
-        ele.attr("placeholder", placeholder);
-        ele.removeClass("input_error")
-        console.log(placeholder)
-      })
+      $kanaFirst = false;
     }
 
     else {
-      $kana = true;
+      //valueを一度リセットしてもう一回入れるとなんか行ける
+      ele.val("")
+      ele.val(val)
+      $kanaFirst = true;
       ele.removeClass("input_error")
       ele.addClass("input_success")
     }
-  };
-  emptyCheck = function (ele) {
-    let placeholder = ele.attr("placeholder")
-    let val = ele.val();
-    console.log(placeholder)
-    if (val == "") {
-      ele.addClass("input_error")
-      $kana = false;
-      ele.attr("placeholder", "入力されていません");
-      ele.focusin(function () {
-        ele.attr("placeholder", placeholder);
-        ele.removeClass("input_error")
-        console.log(placeholder)
-      })
-    }
-    else {
-      $kana = true;
-      ele.removeClass("input_error")
-      ele.addClass("input_success")
-    }
+
   };
 
   gmailCheck = function (ele) {
     let val = ele.val()
     let placeholder = ele.attr("placeholder")
-    if(val == ""){
+    if (val == "") {
       ele.addClass("input_error")
       ele.attr("placeholder", "入力してください");
       ele.val("")
@@ -231,7 +276,10 @@ $(function () {
       ele.attr("placeholder", "半角英数字、@をつけてください");
       ele.val("")
     }
-    else{
+    else {
+      //valueを一度リセットしてもう一回入れるとなんか行ける
+      // ele.val("") 今回はemptyの方にある為コメントアウト
+      // ele.val(val) 
       ele.removeClass("input_error")
       ele.addClass("input_success")
     }
@@ -255,19 +303,44 @@ $(function () {
       ele.removeClass("input_success")
       ele.attr("placeholder", placeholder);
     } else {
+      //valueを一度リセットしてもう一回入れるとなんか行ける
+      ele.val("")
+      ele.val($hyphen)
       ele.removeClass("input_error")
       ele.addClass("input_success")
     }
+    inputReset(ele)
+  }
+
+  inputReset = function (ele) {
+    let placeholder = ele.attr("placeholder")
     ele.focusin(function () {
-      ele.attr("placeholder", placeholder);
-      ele.removeClass("input_error")
+      $(this).attr("placeholder", placeholder);
+      $(this).removeClass("input_error")
+      $(this).removeClass("input_success")
       console.log(placeholder)
     })
   }
 
-  $("#js_form input, #js_form textarea").on("change", function () {//value値が変更されたら、その時点で発動
-    console.log($checked)
+  $('#check_trigger').click(function () {
+    if ($('.form_item_check__input').attr('checked') === 'checked') {
+      $('.form_item_check__input').attr('checked', false);
+    } else {
+      $('.form_item_check__input').attr('checked', true);
 
+    }
+    console.log($('.form_item_check__input').attr('checked'));
+  })
+
+  $("#js_form input[name='zip11']").on("change", function () {
+    let val = $(this).val()
+    $("input[name='entry.1952773575']").val(val)
+  })
+  $("#js_form input[name='addr11']").focusout(function () {
+    let val = $(this).val()
+    $("input[name='entry.834013239']").val(val)
+  })
+  $("#js_form input, #js_form textarea").on("change", function () {//value値が変更されたら、その時点で発動
     if (
       $("#js_form input[data-required='required0']").val() !== "" &&//空白でない
       $("#js_form input[data-required='required1']").val() !== "" &&//空白でない
@@ -287,16 +360,32 @@ $(function () {
       $val = false;
       btn_submit()
     }
-
   })
 
-  $('#check_trigger').click(function () {
-    if ($('.form_item_check__input').attr('checked') === 'checked') {
-      $('.form_item_check__input').attr('checked', false);
-    } else {
-      $('.form_item_check__input').attr('checked', true);
+  //送信
+  let $form = $("#js_form")//formタグにidをつけてその値の定義
+  $form.submit(function (e) { 
+    $.ajax({ 
+      url: $form.attr('action'), 
+      data: $form.serialize(), 
+      type: "POST", 
+      dataType: "xml", 
+      statusCode: { //ここから上は解読してくれ
+        0: function () { 
+        //送信に成功したときの処理 
+        $form.slideUp(300)//formをスライドアップして消す
+        $("#submit_success").slideDown(300)//サクセス文を出す
+      }, 
+      200: function () { 
+        $("#submit_error").slideDown(300)//エラー文を出す
+        //送信に失敗したときの処理 
+        $form.slideUp()//formをスライドアップして消す
+      } 
+      } 
+    }); 
+    return false; //返り値ドーン
+  }); 
 
-    }
-    console.log($('.form_item_check__input').attr('checked'));
-  })
 })
+
+

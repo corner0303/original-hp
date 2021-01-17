@@ -103,7 +103,8 @@
 
   <div class="contact">
     <div class="contact_top page_top">
-      <h2 class="contact_top__ttl page_top__ttl"><span class="contact_top__ttl--en page_top__ttl--en">CONTACT</span><span
+      <h2 class="contact_top__ttl page_top__ttl"><span
+          class="contact_top__ttl--en page_top__ttl--en">CONTACT</span><span
           class="contact_top__ttl--jp page_top__ttl--jp">お問い合わせ</span>
       </h2>
     </div>
@@ -111,22 +112,23 @@
   <!-- /.contact -->
   <section class="contact_web section">
     <div class="contact_web_top section_top">
-      <h2 class="contact_web_top__ttl section_top__ttl"><span
-          class="contact_web_top__ttl--en section_top__ttl--en">WEB FORM</span><span
-          class="contact_web_top__ttl--jp section_top__ttl--jp">お問い合わせフォーム</span>
+      <h2 class="contact_web_top__ttl section_top__ttl"><span class="contact_web_top__ttl--en section_top__ttl--en">WEB
+          FORM</span><span class="contact_web_top__ttl--jp section_top__ttl--jp">お問い合わせフォーム</span>
       </h2>
       <div class="contact_web_top__img section_top__img"></div>
     </div>
     <div class="contact_content">
-      <div class="contact_content_top">
-        <p class="contact_content_top__text">電話でのお問い合わせ</p>
-        <p class="contact_content_top__tell">0120-00-0000</p>
-        <p class="contact_content_top__date">9:15～12:30、
+      <form
+      action="https://docs.google.com/forms/u/7/d/e/1FAIpQLSd7LmEI5estoH8L1MIGfp4-j-eiCPbhqlAFfFMnCiEMwiES5A/formResponse"
+      class="contact_form" id="js_form">
+      <div class="contact_form_top">
+        <p class="contact_form_top__text">電話でのお問い合わせ</p>
+        <p class="contact_form_top__tell">0120-00-0000</p>
+        <p class="contact_form_top__date">9:15～12:30、
           15:00～19:00（日・祝休み）</p>
       </div>
-      <form action="" class="contact_form" id="js_form">
-        <p class="contact_form__text">ウェブフォームでのお問い合わせ</p>
-        <!-- /.contact_form_text -->
+      <p class="contact_form__text">ウェブフォームでのお問い合わせ</p>
+      <!-- /.contact_form_text -->
         <dl class="form_items">
           <div class="form_item">
             <dt class="form_item__ttl">
@@ -134,8 +136,10 @@
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body--name">
-              <input class="form_item_body__input form_item_body__input--last" type="text" name="" id="" placeholder="例）山田" required data-required="required0">
-              <input class="form_item_body__input form_item_body__input--first" type="text" name="" id="" placeholder="例）太郎" required data-required="required1">
+              <input class="form_item_body__input form_item_body__input--last" type="text" name="entry.495616583" id=""
+                placeholder="例）山田" data-required="required0">
+              <input class="form_item_body__input form_item_body__input--first" type="text" name="entry.453960965" id=""
+                placeholder="例）太郎" required data-required="required1">
             </dd>
             <!-- /.form_item_input -->
           </div>
@@ -146,8 +150,10 @@
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body--name_katakana">
-              <input class="form_item_body__input form_item_body__input--last" type="text" name="" id="" placeholder="例）ヤマダ" required data-required="required2" data-kana="katakana--last">
-              <input class="form_item_body__input form_item_body__input--first" type="text" name="" id="" placeholder="例）タロウ" required data-required="required3" data-kana="katakana--first">
+              <input class="form_item_body__input form_item_body__input--last" type="text" name="entry.1264620775" id=""
+                placeholder="例）ヤマダ" required data-required="required2" data-kana="katakana--last">
+              <input class="form_item_body__input form_item_body__input--first" type="text" name="entry.1945078899"
+                id="" placeholder="例）タロウ" required data-required="required3" data-kana="katakana--first">
             </dd>
             <!-- /.form_item_input -->
           </div>
@@ -158,7 +164,8 @@
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body---email">
-              <input class="form_item_body__input form_item_body__input--email" type="email" name="" id="" placeholder="例）example@gmail.com" required data-required="required4">
+              <input class="form_item_body__input form_item_body__input--email" type="email" name="emailAddress" id=""
+                placeholder="例）example@gmail.com" required data-required="required4">
             </dd>
             <!-- /.form_item_input -->
           </div>
@@ -169,7 +176,8 @@
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body--tell">
-              <input class="form_item_body__input form_item_body__input--tell" type="tel" name="" id="" placeholder="例）0120000000">
+              <input class="form_item_body__input form_item_body__input--tell" type="tel" name="entry.1738306504" id=""
+                placeholder="例）0120000000">
             </dd>
             <!-- /.form_item_input -->
           </div>
@@ -180,9 +188,13 @@
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body--postal_code">
-             <span class="form_item_body__postal_code_part">〒</span> <input class="form_item_body__input form_item_body__input--postal_code" type="text" name="zip11" id="" placeholder="例）1500002" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+              <span class="form_item_body__postal_code_part">〒</span> <input
+                class="form_item_body__input form_item_body__input--postal_code" type="text" name="zip11" id=""
+                placeholder="例）1500002" onKeyUp="AjaxZip3.zip2addr(this,'','addr11','addr11');">
+              <input type="text" name="entry.1952773575" class="form_item_body__submit" value="">
             </dd>
             <!-- /.form_item_input -->
+            <!--  -->
           </div>
           <!-- /.form_item -->
           <div class="form_item">
@@ -191,8 +203,11 @@
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body--address">
-              <input class="form_item_body__input form_item_body__input--address" type="text" name="addr11"  id="" placeholder="例）東京都中央区日本橋人形町">
+              <input class="form_item_body__input form_item_body__input--address" type="text" name="addr11" id=""
+                placeholder="例）東京都中央区日本橋人形町">
+              <input type="text" name="entry.834013239" class="form_item_body__submit" value="">
             </dd>
+            <!-- name="entry.834013239" -->
             <!-- /.form_item_input -->
           </div>
           <!-- /.form_item -->
@@ -203,7 +218,8 @@
             </dt>
             <!-- /.form_item__ttl -->
             <dd class="form_item_body form_item_body--content">
-              <textarea name="" id="" class="form_item_body__textarea form_item_body__textarea--content" required data-required="required5"></textarea> <!-- /# -->
+              <textarea name="entry.967621156" id="" class="form_item_body__textarea form_item_body__textarea--content"
+                required data-required="required5"></textarea> <!-- /# -->
             </dd>
             <!-- /.form_item_input -->
           </div>
@@ -216,7 +232,8 @@
             </div>
             <!-- /.form_item_privacy -->
             <label class="form_item_check" for="">
-              <input class="form_item_check__input" type="checkbox" name="" id="" required data-required="required6">
+              <input class="form_item_check__input" type="checkbox" name="entry.1993434961" id="" required
+                data-required="required6">
               <span class="form_item_check__part" id="check_trigger"></span> <!-- /.form_item_check__part -->
               <p class="form_item_check__text">プライバシーポリシーの内容を確認し同意します。</p>
             </label>
@@ -230,6 +247,73 @@
         <!-- /.form_btn -->
       </form>
       <!-- /.contact_form -->
+      <div class="submit_success" id="submit_success">
+        <div class="submit_success_top">
+          <p class="submit_success_top__lead">お問い合わせ<br class="is-sm">ありがとうございました。</p>
+          <p class="submit_success_top__text">ご入力頂いた内容を、確認後３営業日以内に返信致します。</p>
+          <p class="submit_success_top__text">それまでの間弊社のSNSをお楽しみください。</p>
+        </div>
+        <!-- /.submit_success_top -->
+        <div class="submit_success_body">
+          <ul class="sns_items">
+            <div class="sns_top">
+              <li class="sns_item sns_item--twitter">
+                <a href="" class="sns_item_content sns_item_content--twitter">
+                  <i class="sns_item_content__icon sns_item_content__icon--twitter fab fa-twitter"></i>
+                  <span class="sns_item_content__text">Twitter</span>
+                </a>
+              </li>
+              <!-- /.submit_success_sns__item -->
+              <li class="sns_item sns_item--facebook">
+                <a href="" class="sns_item_content sns_item_content--facebook">
+                  <i class="sns_item_content__icon sns_item_content__icon--facebook fab fa-facebook"></i>
+                  <span class="sns_item_content__text">Facebook</span>
+                </a>
+              </li>
+              <!-- /.submit_success_sns__item -->
+            </div>
+            <!-- /.sns_top -->
+            <div class="sns_bottom">
+              <li class="sns_item sns_item--instagram">
+                <a href="" class="sns_item_content sns_item_content--instagram">
+                  <i class="sns_item_content__icon sns_item_content__icon--instagram fab fa-instagram"></i>
+                  <span class="sns_item_content__text">Instagram</span>
+                </a>
+              </li>
+              <!-- /.submit_success_sns__item -->
+              <li class="sns_item sns_item--line">
+                <a href="" class="sns_item_content sns_item_content--line">
+                  <i class="sns_item_content__icon sns_item_content__icon--line fab fa-line"></i>
+                  <span class="sns_item_content__text">LINE</span>
+                </a>
+              </li>
+              <!-- /.submit_success_sns__item -->
+            </div>
+            <!-- /.sns_bottom -->
+          </ul>
+          <!-- /.submit_success_sns -->
+          <div class="common_link">
+            <a href="" class="common_link__btn">HOMEに戻る<i class="common_link__btn--icon fas fa-caret-right"></i></a>
+            <!-- /.common_link__btn -->
+          </div>
+          <!-- /.common_link -->
+        </div>
+        <!-- /.submit_success_body -->
+      </div>
+      <!-- /.submit_success -->
+      <div class="submit_error" id="submit_error">
+        <div class="submit_error_top">
+          <p class="submit_error_top__lead">お問い合わせの送信に失敗しました</p>
+          <p class="submit_error_top__text">再度ご入力いただくか、時間をあけて送信してください</p>
+        </div>
+        <!-- /.submit_error_top -->
+        <div class="common_link">
+          <a href="https://corner0303.github.io/original-hp/contact.html" class="common_link__btn">再度入力する<i class="common_link__btn--icon fas fa-caret-right"></i></a>
+          <!-- /.common_link__btn -->
+        </div>
+        <!-- /.common_link -->
+      </div>
+      <!-- /.submit_error -->
     </div>
     <!-- /.contact_form_wrap -->
   </section>

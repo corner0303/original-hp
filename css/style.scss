@@ -49,24 +49,44 @@ $breakpoints: ("sm": "screen and (max-width: 767px)", "pc": "screen and (min-wid
     }
 }
 
-@mixin btn__part {
-    width: 200px; //横幅
-    height: 60px; //高さ
-    line-height: 60px;
-    text-align: center;
-    color: #fff;
-    box-shadow: 0px 5px 5px rgba(66, 66, 66, 0.8);
-    background: rgba(95, 199, 255, 0.8);
-    border-radius: 10px;
-    transition: background .3s;
-    box-sizing: border-box;
-    cursor: pointer;
-}
 
-@mixin btn__part--hover {
-    &:hover {
-        border: 1px solid rgba(126, 187, 219, 0.8);
-        background: rgba(0, 108, 220, 0.8);
+@mixin common_link {
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    position: relative;
+    margin: 30px auto 0;
+    &::before {
+        content: "";
+        position: absolute;
+        transform: translate(-10px, 10px);
+        z-index: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(245, 180, 0);
+    }
+
+    &__btn {
+        text-align: center;
+        display: block;
+        width: 200px;
+        height: 60px;
+        line-height: 60px;
+        border: 1px solid rgb(104, 104, 104);
+        position: relative;
+        z-index: 1;
+        color: #555;
+        transition: all .3s;
+        background:  rgba(255, 255, 255, 0.4);
+
+        &--icon {
+            margin-left: 10px;
+        }
+
+        &:active {
+            transform: translate(-10px, 10px);
+        }
     }
 }
 
@@ -316,27 +336,13 @@ img {
     }
 }
 
-//link-btn
-.btn {
-    @include btn__part;
-    @include btn__part--hover;
+.common_link{
+    @include common_link();
 
-    $this: &;
-
-    &--mainvisual {
-        margin: 20px auto 0;
-    }
-
-    &--news {
-        margin: 20px auto 0;
-    }
-
-    &__link {
-        color: #fff;
-        font-weight: bold;
+    &--news{
+        margin-top: 30px;
     }
 }
-
 /*===============================================
 # header
 ================================================*/
@@ -541,7 +547,7 @@ img {
         &:hover {
             background: #fff;
         }
-
+        
         &_link {
             display: block;
             font-weight: bold;
@@ -549,13 +555,14 @@ img {
             padding: 1em 0;
             text-decoration: none;
             transition: color .3s ease-out;
-
+            
             &:hover {
                 color: #666;
             }
         }
     }
 }
+
 
 /*===============================================
 # mainvisual
@@ -1629,7 +1636,7 @@ img {
 }
 
 .recruit_top {
-    @include page_top(-475%, -353%);
+    @include page_top(-502%, -370%);
 }
 
 /*===============================================
@@ -1699,6 +1706,22 @@ img {
     &__img {
         &::after {
             background: rgba(255, 255, 255, 0.3);
+        }
+    }
+
+    @include mq(sm) {
+        &__ttl {
+            bottom: -92px;
+            right: 13px;
+
+            &::after {
+                left: -9px;
+                top: 22px;
+            }
+
+            &--en {
+                font-size: 45px;
+            }
         }
     }
 }
@@ -1853,7 +1876,7 @@ img {
     }
 }
 
-.contact_content_top {
+.contact_form_top {
     text-align: center;
     line-height: 1.2;
 
@@ -1872,9 +1895,10 @@ img {
 }
 
 .contact_form {
+    
     margin-top: 30px;
-
     &__text {
+        margin-top: 30px;
         font-size: 20px;
         text-align: center;
     }
@@ -1946,7 +1970,8 @@ img {
         flex: 0 1 500px;
     }
 
-    &__postal_code_part{
+
+    &__postal_code_part {
         font-size: 24px;
         flex: 0 0 20px;
         margin-right: 10px;
@@ -1972,26 +1997,34 @@ img {
             background: $color-active;
         }
 
-        
+        &:-internal-autofill-selected {
+            color: none;
+        }
+
         &--last, &--first {
             &:nth-child(2n) {
                 @include mq(pc) {
                     margin-left: 30px;
                 }
-    
-    
+
+
                 @include mq(sm) {
                     margin-left: 10px;
                 }
             }
+
             @include mq(sm) {
                 min-width: 108px;
                 flex: 0 1 calc(50% - 10px);
                 flex-wrap: wrap;
             }
         }
+    }
 
-        
+    &__submit {
+        position: absolute;
+        top: -1000px;
+        visibility: hidden;
     }
 
     &__textarea {
@@ -2005,6 +2038,7 @@ img {
         height: 100px;
         resize: vertical;
         padding: 10px;
+
         @include mq(sm) {
             height: 50px;
         }
@@ -2018,11 +2052,11 @@ img {
 }
 
 .input_success {
-    background: rgba(0, 255, 85, 0.5);
+    background: rgba(0, 255, 85, 0.5) !important;
 }
 
 .input_error {
-    background: rgba(255, 36, 36, 0.7);
+    background: rgba(255, 36, 36, 0.7) !important;
 
     &::placeholder {
         color: rgba(255, 255, 17, 0.8);
@@ -2141,6 +2175,7 @@ img {
         box-shadow: 1px 5px 5px #33333399;
         transition: all .3s;
         transform: translateX(0px) translateY(0px);
+
         &::after {
             content: "";
             position: absolute;
@@ -2161,6 +2196,7 @@ img {
             background: #888;
             box-shadow: none;
             transform: translateX(1px) translateY(5px);
+
             // color: #333;
 
             &::after {
@@ -2169,6 +2205,147 @@ img {
                 _border-color: #000000 #000000 #555  #000000;
                 _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
             }
+        }
+    }
+}
+
+//送信に成功時の画面
+.submit_success {
+    display: none;
+}
+
+.submit_success_top {
+    text-align: center;
+
+    &__lead {
+        line-height: 1.2;
+        margin-bottom: 10px;
+
+        @include mq(pc) {
+            font-size: 32px;
+        }
+
+
+        @include mq(sm) {
+            font-size: 20px;
+        }
+    }
+
+    &__text {
+        font-size: 20px;
+
+        @include mq(sm) {
+            font-size: 14px;
+        }
+    }
+}
+
+.sns_items {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.sns_top, .sns_bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sns_item {
+    margin: 20px 30px;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        transform: translate(-10px, 10px);
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    &--twitter{
+        &::before{
+            background-color: rgb(29,161,242);       
+        }
+    }
+    &--facebook{
+        &::before{
+            background-color: rgb(60,90,153);       
+        }
+    }
+    &--instagram{
+        &::before{
+            background-color: rgb(207,46,146);       
+        }
+    }
+    
+    &--line{
+        &::before{
+            background-color: rgb(0,185,0);
+        }
+    }
+}
+
+.sns_item_content {
+    display: block;
+    width: 200px;
+    height: 60px;
+    line-height: 60px;
+    color: #555;
+    background: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    font-size: 18px;
+    border: 1px solid rgb(104, 104, 104);
+    color: #fff;
+    position:relative;
+    z-index: 1;
+    transition: all .3s;
+    &__text{
+        text-shadow:0px 1px 1px  #333;
+    }
+    &__icon{
+        text-shadow:0px 1px 1px  #333;
+        
+    }
+
+    &:active {
+        transform: translate(-10px, 10px);
+    }
+}
+
+//送信に失敗時のの画面
+.submit_error {
+    display: none;
+}
+
+.submit_error_top {
+    text-align: center;
+
+    &__lead {
+        line-height: 1.2;
+        margin-bottom: 10px;
+
+        @include mq(pc) {
+            font-size: 32px;
+        }
+
+
+        @include mq(sm) {
+            font-size: 20px;
+        }
+    }
+
+    &__text {
+        font-size: 20px;
+
+        @include mq(sm) {
+            font-size: 14px;
         }
     }
 }
