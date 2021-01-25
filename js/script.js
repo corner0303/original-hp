@@ -385,7 +385,12 @@ $(function () {
     }); 
     return false; //返り値ドーン
   }); 
-
 })
 
 
+window.onload = function() {
+  document.getElementById("loading_text").innerText = "LOADING COMPLETED";
+  const box = document.getElementById('loading');
+  box.classList.add('loaded');
+  document.querySelector('body').style.overflow = "scroll"
+}
